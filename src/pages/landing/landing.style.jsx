@@ -35,10 +35,11 @@ export const HeroContainer = styled.div`
 
 export const HeroHeader = styled.h1`
   font-weight: 400;
-  font-size: 1.75rem;
+  font-size: 2rem;
   line-height: 1.1;
   margin: 0 auto;
-  
+  width: 80%;
+
   @media only screen and (min-width: 50em) {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 530;
@@ -71,14 +72,18 @@ export const HeroContent = styled.div`
   text-align: center;
   z-index: 1;
   position: absolute;
-  margin: 0 auto;
-  top: 50%;
-  left: 50%;
+  margin: 20vh auto;
+  padding: 5%;
 
-  transform: translate(-50%, -50%);
-
+  @media only screen and (min-width: 40em) {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   @media only screen and (min-width: 50em) {
-    top: 52%;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 
