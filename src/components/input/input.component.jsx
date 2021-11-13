@@ -1,13 +1,16 @@
 import React from 'react';
-import { HeroInput } from './input.style';
+import { HeroInput, FloatingLabel, InputContainer } from './input.style';
 
 const handleClick = (event) => {
   event.preventDefault();
 };
-function Input({ type, placeholder }) {
+function Input() {
   return (
     <form>
-      <HeroInput type={type} placeholder={placeholder} onClick={handleClick} />
+      <InputContainer>
+        <HeroInput onClick={handleClick} />
+        <FloatingLabel id='label'>Email Address</FloatingLabel>
+      </InputContainer>
     </form>
   );
 }

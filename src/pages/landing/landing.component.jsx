@@ -22,7 +22,7 @@ function LandingPage() {
           membership
         </HeroParagraph>
         <CtaContainer>
-          <Input type='email' placeholder='Email Address' />
+          <Input type='email'  />
           <CustomButton id='btn' large>Get Started</CustomButton>
         </CtaContainer>
       </HeroContent>

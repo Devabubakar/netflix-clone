@@ -1,18 +1,42 @@
 import styled from 'styled-components';
-export const HeroInput = styled.input`
+export const HeroInput = styled.input.attrs((props) => ({
+  type: props,
+  required: 'true',
+}))`
   margin: 2rem auto;
-  padding: .7rem 20vw;
-  ::placeholder {
-    position: absolute;
-    left: 0;
-    padding-left: 10px;
-  }
+  width: 15em;
+  height: 3em;
+  text-align: start;
+  border: none;
+  position: relative;
+  padding: 18px;
   &:focus {
-    ::placeholder {
-      padding-bottom: 50px;
-    }
+    outline: yellow 1px solid;
   }
-  @media only screen and (min-width:50em) {
-    padding: 1.5rem 10vw;
+  &:focus + #label,
+  &:not(focus):valid ~ #label {
+    top: 25%;
+    font-size: 14px;
   }
+  &:valid {
+    background: white;
+  }
+
+  @media only screen and (min-width: 50em) {
+    width: 30em;
+    height: 4.9em;
+  }
+`;
+
+export const InputContainer = styled.div`
+  position: relative;
+`;
+
+export const FloatingLabel = styled.span`
+  position: absolute;
+  color: gray;
+  pointer-events: none;
+  top: 45%;
+  left: 5%;
+  transition: 0.1s;
 `;
