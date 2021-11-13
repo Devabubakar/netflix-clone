@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import HeroImage from '../../assets/hero-image.jpeg';
 export const HeroContainer = styled.div`
-  height: 80vh;
+  height: 90vh;
   width: 100%;
   background-image: url(${HeroImage});
   background-size: cover;
@@ -20,7 +20,7 @@ export const HeroContainer = styled.div`
       ),
       radial-gradient(50% 120%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 100%);
 
-    height: 80vh;
+    height: 90vh;
     width: 100%;
     border: none;
     overflow: hidden;
@@ -36,7 +36,6 @@ export const HeroContainer = styled.div`
 export const HeroHeader = styled.h1`
   font-weight: 400;
   font-size: 1.75rem;
-  width: 80%;
   line-height: 1.1;
   margin: 0 auto;
   @media only screen and (min-width: 50em) {
@@ -71,7 +70,7 @@ export const HeroContent = styled.div`
   position: absolute;
   padding-left: 2%;
   margin: 0 auto;
-  top: 40%;
+  top: 50%;
   left: 50%;
 
   transform: translate(-50%, -50%);
