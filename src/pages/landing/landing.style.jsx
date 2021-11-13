@@ -38,10 +38,11 @@ export const HeroHeader = styled.h1`
   font-size: 1.75rem;
   line-height: 1.1;
   margin: 0 auto;
+  
   @media only screen and (min-width: 50em) {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 530;
-     white-space: nowrap;
+    width: 80%;
   }
 `;
 
@@ -51,9 +52,11 @@ export const HeroParagraph = styled.p`
   margin-top: 16px;
   font-size: 1.125rem;
   line-height: normal;
+  font-weight: 300;
 
   :first-of-type {
     margin-bottom: 20px;
+    font-weight: 400;
   }
   @media only screen and (min-width: 50em) {
     font-size: 1.3rem;
@@ -68,7 +71,6 @@ export const HeroContent = styled.div`
   text-align: center;
   z-index: 1;
   position: absolute;
-  padding-left: 2%;
   margin: 0 auto;
   top: 50%;
   left: 50%;
@@ -76,7 +78,7 @@ export const HeroContent = styled.div`
   transform: translate(-50%, -50%);
 
   @media only screen and (min-width: 50em) {
-    top: 60%;
+    top: 52%;
   }
 `;
 
