@@ -15,7 +15,7 @@ export const HeroInput = styled.input.attrs((props) => ({
   }
   &:focus + #label,
   &:not(focus):valid ~ #label {
-    top: 25%;
+    top: 30%;
     font-size: 14px;
   }
   &:valid {
