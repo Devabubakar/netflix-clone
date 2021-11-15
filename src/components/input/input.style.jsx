@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 export const HeroInput = styled.input.attrs((props) => ({
   type: props,
-  required: 'true',
+  required: true,
 }))`
   margin: 2rem auto;
   width: 15em;
-  height: 3em;
+  height: 4em;
   text-align: start;
   border: none;
   position: relative;
@@ -24,7 +24,7 @@ export const HeroInput = styled.input.attrs((props) => ({
 
   @media only screen and (min-width: 50em) {
     width: 30em;
-    height: 4.9em;
+    height: 5.8em;
   }
 `;
 
@@ -37,6 +37,10 @@ export const FloatingLabel = styled.span`
   color: gray;
   pointer-events: none;
   top: 45%;
-  left: 5%;
+  left: 30%;
   transition: 0.1s;
+
+  @media only screen and (min-width: 60em) {
+    left: 5%;
+  }
 `;
