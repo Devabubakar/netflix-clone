@@ -16,4 +16,8 @@ export const NavigationContainer = styled.div`
   align-items: center;
   padding: 5% 5%;
   position: relative;
+
+  @media only screen and (min-width: 40em) {
+    padding: 2% 4.5%;
+  }
 `;

@@ -24,7 +24,7 @@ export const HeroInput = styled.input.attrs((props) => ({
 
   @media only screen and (min-width: 50em) {
     width: 30em;
-    height: 4.5em;
+    height: 4.7em;
   }
 `;
 
@@ -40,7 +40,11 @@ export const FloatingLabel = styled.span`
   left: 30%;
   transition: 0.1s;
 
-  @media only screen and (min-width: 60em) {
-    left: 5%;
+  @media only screen and (min-width: 523px) {
+    left: 32%;
+  }
+
+  @media only screen and (min-width: 50em) {
+    left: 6%;
   }
 `;

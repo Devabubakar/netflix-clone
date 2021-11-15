@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HeroSection from '../../components/hero/hero.component';
 import StorySection from '../../components/story/story.component';
+import QAItem from '../../components/qaitem/qaitem.component';
 
 function LandingPage() {
-  const [visibility, setVisibility] = useState(true);
-  
   return (
     <div>
       <HeroSection />
       <StorySection />
+      <QAItem />
     </div>
   );
 }

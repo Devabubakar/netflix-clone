@@ -43,14 +43,13 @@ export const HeroContainer = styled.div`
 `;
 
 export const HeroHeader = styled.h1`
-  font-weight: 400;
   font-size: 2rem;
   line-height: 1.1;
   margin: 0 auto;
 
   @media only screen and (min-width: 50em) {
     font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: 530;
+    font-weight: 700;
     width: 80%;
   }
 `;
@@ -79,15 +78,13 @@ export const HeroContent = styled.div`
   text-align: center;
   z-index: 1;
   position: absolute;
-  margin: 8vh auto;
-  padding: 3%;
+  margin: 8vh 3%;
 
   @media only screen and (min-width: 40em) {
-  }
-  @media only screen and (min-width: 50em) {
-    top: 53%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
+    margin: 0;
   }
 `;
 

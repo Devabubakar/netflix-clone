@@ -10,5 +10,8 @@ export const CustomButton = styled.button`
 
   @media only screen and (min-width: 50em) {
     padding: ${(props) => (props.large ? '.9rem 3rem' : '.4rem 1.5rem')};
+    border-radius: ${(props) => (props.large ? '4px' : '5px')};
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 `;

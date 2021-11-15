@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import StoryImageLink from '../../assets/phone.png';
+
 
 export const Story = styled.div`
   background: #000000;
@@ -17,15 +17,18 @@ export const Story = styled.div`
     grid-template-columns: 1fr 1fr;
     text-align: start;
     align-items: center;
+    padding: 5% 8%;
   }
 `;
 
 export const StoryHeader = styled.h2`
   margin-top: 5vh;
 
+  font-weight: 800;
   @media only screen and (min-width: 40em) {
     font-size: clamp(2rem, 20vw, 2.5rem);
     margin-top: 0;
+    width: 80%;
   }
 `;
 export const StoryParagraph = styled.p`
@@ -41,7 +44,7 @@ export const StoryParagraph = styled.p`
 export const StoryLink = styled(Link)`
   text-decoration: none;
   color: white;
-  @media only screen and (min-width:40em){
+  @media only screen and (min-width: 40em) {
     font-size: clamp(1.25rem, 20vw, 1.35rem);
   }
 `;
