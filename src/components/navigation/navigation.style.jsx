@@ -14,6 +14,6 @@ export const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2% 5%;
+  padding: 5% 5%;
   position: relative;
 `;

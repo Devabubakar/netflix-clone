@@ -7,6 +7,7 @@ export const HeroContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #fff;
   z-index: -1;
   &::before {
@@ -19,11 +20,20 @@ export const HeroContainer = styled.div`
       rgba(0, 0, 0, 0.9) 100%
     );
 
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     border: none;
     overflow: hidden;
   }
+  //iphone 5 only
+  @media screen and (device-aspect-ratio: 40/71) {
+    height: 115vh;
+
+    &::before {
+      height: 115vh;
+    }
+  }
+
   @media only screen and (min-width: 50em) {
     height: 100vh;
     &::before {
@@ -37,7 +47,6 @@ export const HeroHeader = styled.h1`
   font-size: 2rem;
   line-height: 1.1;
   margin: 0 auto;
-  width: 80%;
 
   @media only screen and (min-width: 50em) {
     font-size: clamp(2rem, 5vw, 2.8rem);
@@ -70,16 +79,13 @@ export const HeroContent = styled.div`
   text-align: center;
   z-index: 1;
   position: absolute;
-  margin: 20vh auto;
-  padding: 5%;
+  margin: 8vh auto;
+  padding: 3%;
 
   @media only screen and (min-width: 40em) {
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
   @media only screen and (min-width: 50em) {
-    top: 40%;
+    top: 53%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
