@@ -1,0 +1,17 @@
+export const footerData = [
+  'FAQ',
+  'Account',
+  'Investor Relations',
+  'Ways to Watch',
+  'Privacy',
+  'Corporate Information',
+  'Speed Test',
+  'Only on Netflix',
+  'Help',
+  'Media Center',
+  'Jobs',
+  'Terms of Service',
+  'Cookie Preference',
+  'Contact Us',
+  'Legal Notices',
+];
