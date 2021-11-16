@@ -1,14 +1,14 @@
 import React from 'react';
-import { CustomButton } from '../../components/button/button.style';
+
 import Navigation from '../../components/navigation/navigation.component';
 import {
   HeroContainer,
   HeroHeader,
   HeroContent,
   HeroParagraph,
-  CtaContainer,
 } from './hero.style';
-import Input from '../../components/input/input.component';
+import CTAInput from '../input/input.component';
+
 function HeroSection() {
   return (
     <div>
@@ -21,12 +21,7 @@ function HeroSection() {
             Ready to watch ? , Enter your email to create or restart your
             membership
           </HeroParagraph>
-          <CtaContainer>
-            <Input type='email' />
-            <CustomButton id='btn' large>
-              Get Started
-            </CustomButton>
-          </CtaContainer>
+          <CTAInput />
         </HeroContent>
       </HeroContainer>
     </div>

@@ -41,10 +41,21 @@ export const FloatingLabel = styled.span`
   transition: 0.1s;
 
   @media only screen and (min-width: 523px) {
-    left: 32%;
+    left: 40%;
   }
 
   @media only screen and (min-width: 50em) {
     left: 6%;
+  }
+`;
+
+export const CtaContainer = styled.div`
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  @media only screen and (min-width: 50em) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

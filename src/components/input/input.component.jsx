@@ -1,5 +1,11 @@
 import React from 'react';
-import { HeroInput, FloatingLabel, InputContainer } from './input.style';
+import {
+  HeroInput,
+  FloatingLabel,
+  InputContainer,
+  CtaContainer,
+} from './input.style';
+import { CustomButton } from '../button/button.style';
 
 const handleClick = (event) => {
   event.preventDefault();
@@ -15,4 +21,15 @@ function Input() {
   );
 }
 
-export default Input;
+export function CTAInput() {
+  return (
+    <CtaContainer>
+      <Input type='email' />
+      <CustomButton id='btn' large>
+        Get Started
+      </CustomButton>
+    </CtaContainer>
+  );
+}
+
+export default CTAInput;

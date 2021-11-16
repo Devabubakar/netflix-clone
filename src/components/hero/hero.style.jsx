@@ -88,10 +88,3 @@ export const HeroContent = styled.div`
   }
 `;
 
-export const CtaContainer = styled.div`
-  @media only screen and (min-width: 50em) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;

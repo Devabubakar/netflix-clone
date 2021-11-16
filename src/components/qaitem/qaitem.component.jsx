@@ -7,6 +7,7 @@ import {
   QAItemParagraph,
   QAContent,
 } from './qaitem.style';
+import CTAInput from '../input/input.component';
 import { FaPlus, FaTimes } from 'react-icons/fa';
 import { QA } from '../../data/QA';
 
@@ -45,6 +46,11 @@ function QAItem() {
           index={index}
         />
       ))}
+
+      <QAHeader small>
+        Ready to watch ? Enter your email to create or restart your membership
+      </QAHeader>
+      <CTAInput small />
     </QASection>
   );
 }
