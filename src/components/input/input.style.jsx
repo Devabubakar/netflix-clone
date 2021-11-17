@@ -24,7 +24,7 @@ export const HeroInput = styled.input.attrs((props) => ({
 
   @media only screen and (min-width: 50em) {
     width: 30em;
-    height: 4.7em;
+    height: 4.8em;
   }
 `;
 

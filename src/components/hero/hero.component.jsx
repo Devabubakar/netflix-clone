@@ -15,7 +15,7 @@ function HeroSection() {
       <HeroContainer>
         <Navigation />
         <HeroContent>
-          <HeroHeader>Unlimited movies, TV Shows and more.</HeroHeader>
+          <HeroHeader>Unlimited movies, TV shows and more.</HeroHeader>
           <HeroParagraph>Watch Anywhere , Cancel Anytime</HeroParagraph>
           <HeroParagraph>
             Ready to watch ? , Enter your email to create or restart your

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 export const Story = styled.div`
   background: #000000;
   margin: 0;
@@ -26,15 +25,18 @@ export const StoryHeader = styled.h2`
 
   font-weight: 800;
   @media only screen and (min-width: 40em) {
-    font-size: clamp(2rem, 20vw, 2.5rem);
+    font-size: clamp(2rem, 20vw, 3rem);
     margin-top: 0;
     width: 80%;
+    line-height: 1.25;
   }
 `;
 export const StoryParagraph = styled.p`
   margin: 20px 10px;
   font-weight: 400;
   font-size: 1.125rem;
+  margin: 0 auto;
+  font-family: Netflix Sans Thin;
 
   @media only screen and (min-width: 40em) {
     font-size: clamp(1.25rem, 20vw, 1.5rem);

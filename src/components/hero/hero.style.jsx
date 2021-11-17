@@ -44,13 +44,15 @@ export const HeroContainer = styled.div`
 
 export const HeroHeader = styled.h1`
   font-size: 2rem;
-  line-height: 1.1;
+  line-height: 1.2;
   margin: 0 auto;
+  
 
   @media only screen and (min-width: 50em) {
-    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    width: 80%;
+    width: 90%;
+    letter-spacing: 2px;
   }
 `;
 
@@ -81,10 +83,9 @@ export const HeroContent = styled.div`
   margin: 8vh 3%;
 
   @media only screen and (min-width: 40em) {
-    top: 60%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
   }
 `;
-
