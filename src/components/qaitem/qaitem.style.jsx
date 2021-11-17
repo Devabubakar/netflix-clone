@@ -7,15 +7,16 @@ export const QASection = styled.div`
 `;
 export const QAHeader = styled.h3`
   font-size: 1.3rem;
-  padding: ${(props) => (props.small ? '30px 0 0 0' : '20px')};
+  padding: ${(props) => (props.small ? '50px 0 0 0' : '20px')};
   text-align: center;
   width: ${(props) => (props.small ? '80%' : null)};
+  font-family: ${(props) => (props.small ? 'Netflix Sans thin' : null)};
 
   margin: ${(props) => (props.small ? '0 auto' : null)};
 
   @media only screen and (min-width: 40em) {
     font-size: ${(props) =>
-      props.small ? 'clamp(1rem,20vh,2rem)' : 'clamp(1.5rem, 20vh, 3rem)'};
+      props.small ? '1.4rem' : 'clamp(1.5rem, 20vh, 3rem)'};
     width: ${(props) => (props.small ? '60%' : null)};
   }
 `;
@@ -54,7 +55,7 @@ export const QAItemParagraph = styled(QAItems)`
   padding: 3%;
   text-align: start;
   margin-top: 2px;
- 
+
   letter-spacing: 1px;
   transition: max-height 2s ease;
   @media only screen and (min-width: 40em) {

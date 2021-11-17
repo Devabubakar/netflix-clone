@@ -80,7 +80,7 @@ export const HeroContent = styled.div`
   text-align: center;
   z-index: 1;
   position: absolute;
-  margin: 8vh 3%;
+  margin: 20vh 5%;
 
   @media only screen and (min-width: 40em) {
     top: 58%;
