@@ -13,7 +13,7 @@ export const FooterContainer = styled.div`
 `;
 
 export const FooterContent = styled.div`
-  margin-top: 40px;
+  margin: 40px 0;
   gap: 10px;
   display: grid;
   padding: 0;

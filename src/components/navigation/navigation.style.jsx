@@ -3,7 +3,7 @@ import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 export const LogoContainer = styled(Logo)`
   height: 25px;
-  color: 'green';
+  cursor: pointer;
 
   @media only screen and (min-width: 50em) {
     height: 35px;

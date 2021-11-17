@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { CustomButton } from '../button/button.style';
+import { ButtonLink } from '../button/button.style';
 import { LogoContainer, NavigationContainer } from './navigation.style';
+import { Link } from 'react-router-dom';
 
 function Navigation() {
   return (
     <NavigationContainer>
-      <LogoContainer />
-      <CustomButton>Sign In</CustomButton>
+      <Link to='/'>
+        <LogoContainer to='/' />
+      </Link>
+
+      <ButtonLink to='/login'>Sign In</ButtonLink>
     </NavigationContainer>
   );
 }

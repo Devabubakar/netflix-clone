@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-export const CustomButton = styled.button`
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
+export const buttonStyle = css`
   padding: ${(props) => (props.large ? '.6rem 2rem' : '.2rem .4rem')};
   background-color: #e6322f;
   color: white;
@@ -13,5 +14,16 @@ export const CustomButton = styled.button`
     border-radius: ${(props) => (props.large ? '4px' : '5px')};
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+`;
+export const CustomButton = styled.button`
+  ${buttonStyle}
+`;
+export const ButtonLink = styled(Link)`
+  text-decoration: none;
+  ${buttonStyle}
+
+  @media (min-width:40em) {
+    border-radius: ${(props) => (props.large ? '4px' : '5px')};
   }
 `;

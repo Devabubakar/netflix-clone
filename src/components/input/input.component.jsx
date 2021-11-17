@@ -10,21 +10,19 @@ import { CustomButton } from '../button/button.style';
 const handleClick = (event) => {
   event.preventDefault();
 };
-function Input() {
+export function Input({ label, type , login }) {
   return (
-    <form>
-      <InputContainer>
-        <HeroInput onClick={handleClick} />
-        <FloatingLabel id='label'>Email Address</FloatingLabel>
-      </InputContainer>
-    </form>
+    <InputContainer>
+      <HeroInput type={type} onClick={handleClick}  />
+      <FloatingLabel id='label'>{label}</FloatingLabel>
+    </InputContainer>
   );
 }
 
-export function CTAInput() {
+function CTAInput() {
   return (
     <CtaContainer>
-      <Input type='email' />
+      <Input type='email' label='Email Address' />
       <CustomButton id='btn' large>
         Get Started
       </CustomButton>

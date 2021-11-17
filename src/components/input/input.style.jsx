@@ -4,7 +4,7 @@ export const HeroInput = styled.input.attrs((props) => ({
   required: true,
 }))`
   margin: 2rem auto;
-  width: 15em;
+  width: ${(props) => (props.login ? '200em' : '15em')};
   height: 4em;
   text-align: start;
   border: none;
