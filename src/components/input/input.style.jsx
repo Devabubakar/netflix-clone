@@ -10,16 +10,16 @@ export const HeroInput = styled.input.attrs((props) => ({
   border: none;
   position: relative;
   padding: 18px;
+  ::placeholder {
+    color: black;
+  }
   &:focus {
     outline: yellow 1px solid;
-  }
-  &:focus + #label,
-  &:not(focus):valid ~ #label {
-    top: 30%;
-    font-size: 14px;
-  }
-  &:valid {
-    background: white;
+
+    ::placeholder {
+      position: absolute;
+      font-size: 10px;
+    }
   }
 
   @media only screen and (min-width: 50em) {
@@ -30,23 +30,6 @@ export const HeroInput = styled.input.attrs((props) => ({
 
 export const InputContainer = styled.div`
   position: relative;
-`;
-
-export const FloatingLabel = styled.span`
-  position: absolute;
-  color: gray;
-  pointer-events: none;
-  top: 45%;
-  left: 30%;
-  transition: 0.1s;
-
-  @media only screen and (min-width: 523px) {
-    left: 40%;
-  }
-
-  @media only screen and (min-width: 50em) {
-    left: 6%;
-  }
 `;
 
 export const CtaContainer = styled.div`

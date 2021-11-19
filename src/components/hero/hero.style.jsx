@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import HeroImage from '../../assets/hero-image.jpeg';
+
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 export const HeroContainer = styled.div`
   height: 100vh;
   width: 100%;
@@ -87,5 +89,28 @@ export const HeroContent = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
+  }
+`;
+
+
+
+export const LogoContainer = styled(Logo)`
+  height: 25px;
+  cursor: pointer;
+
+  @media only screen and (min-width: 50em) {
+    height: 35px;
+  }
+`;
+
+export const NavigationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 5%;
+  position: relative;
+
+  @media only screen and (min-width: 40em) {
+    padding: 2% 4.5%;
   }
 `;

@@ -29,7 +29,9 @@ const Login = () => {
             placeholder='Email or phone Number'
           />
           <LoginInput type='password' label='Password' placeholder='Password' />
-          <LoginButton>Sign In</LoginButton>
+          <Link to='/browse'>
+            <LoginButton to='browse'>Sign In</LoginButton>
+          </Link>
         </FormContainer>
         <LoginCTA>
           <FaFacebookSquare size={30} />

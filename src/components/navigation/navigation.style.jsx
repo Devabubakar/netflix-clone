@@ -10,9 +10,30 @@ export const LogoContainer = styled(Logo)`
   }
 `;
 
+export const NavItem = styled.div`
+  display: none;
+
+  &:first-of-type {
+    margin-left: 40px;
+  }
+
+  @media only screen and (min-width: 45em) {
+    display: flex;
+    padding: clamp(10px, 20vh, 15px);
+  }
+`;
+
+export const NavIcons = styled.div`
+  margin-left: auto;
+
+  #icons {
+    margin: 10px;
+  }
+`;
+
 export const NavigationContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
   padding: 5% 5%;
   position: relative;

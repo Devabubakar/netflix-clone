@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { LogoContainer } from '../navigation/navigation.style';
-
+import { LogoContainer } from '../hero/hero.style';
 
 export const LoginContainer = styled.div`
   background: black;
@@ -67,8 +66,6 @@ export const LoginLabel = styled.span`
   top: 23%;
   color: #575757;
   font-weight: 800;
-
-  
 `;
 
 export const LoginButton = styled.button`
