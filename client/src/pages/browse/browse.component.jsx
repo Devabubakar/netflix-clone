@@ -1,13 +1,17 @@
 import React from 'react';
-import Navigation from '../../components/navigation/navigation.component';
+
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Carousel from '../../components/banner/banner.component';
 
 const queryClient = new QueryClient();
 function Browse() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Navigation />
-    </QueryClientProvider>
+    <div>
+  
+      <QueryClientProvider client={queryClient}>
+        <Carousel />
+      </QueryClientProvider>
+    </div>
   );
 }
 

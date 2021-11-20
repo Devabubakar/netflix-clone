@@ -27,3 +27,12 @@ export const ButtonLink = styled(Link)`
     border-radius: ${(props) => (props.large ? '4px' : '5px')};
   }
 `;
+
+ // const [movies, setMovies] = useState([]);
+  // useEffect(() => {
+  //   const fetchMovies = async () => {
+  //     const movies = await fetch('/browse').then((res) => res.json());
+  //     setMovies(movies.data.results);
+  //   };
+  //   fetchMovies();
+  // }, []);

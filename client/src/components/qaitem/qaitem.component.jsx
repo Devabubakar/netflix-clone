@@ -11,6 +11,7 @@ import CTAInput from '../input/input.component';
 import { FaPlus, FaTimes } from 'react-icons/fa';
 import { QA } from '../../data/QA';
 
+
 function ListItem({ qaitem, clicked, toggleItem, index }) {
   return (
     <div>
