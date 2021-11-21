@@ -15,8 +15,8 @@ function Banner() {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const fetchMovies = async () => {
-      const movies = await fetch('/browse').then((res) => res.json());
-      setMovies(movies.data.results);
+      const moviesData = await fetch('/browse');
+      setMovies(moviesData.data.results);
     };
     fetchMovies();
   }, []);
