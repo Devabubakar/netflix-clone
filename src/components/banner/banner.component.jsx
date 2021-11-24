@@ -16,12 +16,7 @@ function Banner() {
     `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`
   );
 
-  if (error) {
-    console.log(error);
-  }
-  if (isLoading) {
-    console.log('loading');
-  }
+  
 
   function truncateString(string, limit) {
     if (string.length > limit) {

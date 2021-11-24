@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { RowContainer, RowItem, RowHeader, RowSlider } from './row.style';
 import useFetch from '../../hooks/useFetch';
 
 const Row = ({ url, heading }) => {
-  const { data, isLoading, error } = useFetch(url);
-  if (error) return <div>Error...</div>;
-  if (isLoading) return <div>Loading ...</div>;
+  const { data } = useFetch(url);
 
   return (
+
     <RowContainer>
       <RowHeader>{heading}</RowHeader>
       <RowSlider>
-        {data.results.map((movie, index) => (
+        {data?.results.map((movie, index) => (
           <RowItem
-            src={`http://image.tmdb.org/t/p/w1280/${movie.poster_path}`}
+            src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt='test'
             key={index}
           />
