@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 
 import './App.css';
 import ErrorBoundary from './components/error.boundary/error.boundary';
+import Loader from './components/loader/loader.component';
 
 const LandingPage = lazy(() => import('./pages/landing/landing.component'));
 const Login = lazy(() => import('./components/login/login.component'));
@@ -15,7 +16,7 @@ function App() {
     <div className='App'>
       <Router>
         <ErrorBoundary>
-          <Suspense fallback={<div>Loading ....</div>}>
+          <Suspense fallback={<Loader />}>
             <Routes>
               <Route exact path='/' element={<LandingPage />} />
               <Route path='/login' element={<Login />} />

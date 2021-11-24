@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import {
   BannerContainer,
   BannerContent,
@@ -11,12 +11,11 @@ import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 import Navigation from '../navigation/navigation.component';
 import useFetch from '../../hooks/useFetch';
+import Loader from '../loader/loader.component';
 function Banner() {
-  const { data, isLoading, error } = useFetch(
+  const { data, isLoading } = useFetch(
     `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`
   );
-
-  
 
   function truncateString(string, limit) {
     if (string.length > limit) {
@@ -29,7 +28,7 @@ function Banner() {
   const movie = data?.results[Math.floor(Math.random() * data.results.length)];
 
   return isLoading ? (
-    <div>Loading ...</div>
+    <Loader />
   ) : (
     <BannerContainer
       img={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}

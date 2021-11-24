@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { RowContainer, RowItem, RowHeader, RowSlider } from './row.style';
 import useFetch from '../../hooks/useFetch';
 
@@ -6,7 +6,6 @@ const Row = ({ url, heading }) => {
   const { data } = useFetch(url);
 
   return (
-
     <RowContainer>
       <RowHeader>{heading}</RowHeader>
       <RowSlider>
@@ -14,7 +13,7 @@ const Row = ({ url, heading }) => {
           <RowItem
             src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt='test'
-            key={index}
+            key={movie.id}
           />
         ))}
       </RowSlider>
@@ -22,4 +21,4 @@ const Row = ({ url, heading }) => {
   );
 };
 
-export default Row;
+export default React.memo(Row);
