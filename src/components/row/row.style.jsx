@@ -20,8 +20,7 @@ export const RowSlider = styled.div`
     background: transparent;
   }
 
-  gap: 5px;
-  transition: transform 450ms;
+  gap: 10px;
 `;
 export const RowItem = styled.img`
   height: 200px;
@@ -29,12 +28,13 @@ export const RowItem = styled.img`
   width: auto;
   display: block;
   object-fit: contain;
+  transition: transform 500ms;
 
   background-repeat: no-repeat;
   border-radius: 6px;
 
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
   }
 `;
 export const RowHeader = styled.h1`
