@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   BannerContainer,
   BannerContent,
@@ -10,19 +10,19 @@ import {
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 import Navigation from '../navigation/navigation.component';
-
+import useFetch from '../../hooks/useFetch';
 function Banner() {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const moviesData = await fetch('/browse');
-      setMovies(moviesData.data.results);
-    };
-    fetchMovies();
-  }, []);
+  const { data, isLoading, error } = useFetch(
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`
+  );
 
-  console.log(movies);
-  const movie = movies[Math.floor(Math.random() * movies.length)];
+  if (error) {
+    console.log(error);
+  }
+  if (isLoading) {
+    console.log('loading');
+  }
+
   function truncateString(string, limit) {
     if (string.length > limit) {
       return string.substring(0, limit) + '...';
@@ -30,10 +30,15 @@ function Banner() {
       return string;
     }
   }
-  return movie ? (
+
+  const movie = data?.results[Math.floor(Math.random() * data.results.length)];
+
+  return isLoading ? (
+    <div>Loading ...</div>
+  ) : (
     <BannerContainer
       img={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}
-    `}
+`}
     >
       <Navigation />
       <BannerContent>
@@ -51,8 +56,6 @@ function Banner() {
         </BannerCta>
       </BannerContent>
     </BannerContainer>
-  ) : (
-    <div>Loading ....</div>
   );
 }
 

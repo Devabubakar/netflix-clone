@@ -1,23 +1,45 @@
 import styled from 'styled-components';
 
 export const RowContainer = styled.div`
-  height: 100vh;
-  padding-left: 10vw;
-  display: flex;
-  gap: 30px;
+  background: rgba(0, 0, 0, 1);
+
+  padding-bottom: 3vh;
+  padding-left: 20px;
+
+  @media only screen and (min-width: 40em) {
+    padding-left: 40px;
+  }
+`;
+
+export const RowSlider = styled.div`
   overflow-x: scroll;
   overflow-y: hidden;
-  transition: transform 450ms;
+  display: grid;
+  grid-auto-flow: column;
+  ::-webkit-scrollbar {
+    background: transparent;
+  }
 
-  color: white;
-  background: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 1) 100%);
+  gap: 5px;
+  transition: transform 450ms;
 `;
-export const RowItem = styled.div`
-  height: 120px;
-  background: red;
-  width: 130px;
+export const RowItem = styled.img`
+  height: 200px;
+  background: url(${(props) => props.img});
+  width: auto;
+  display: block;
+  object-fit: contain;
+
+  background-repeat: no-repeat;
+  border-radius: 6px;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
+`;
+export const RowHeader = styled.h1`
+  color: white;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
+  font-size: 1rem;
 `;
