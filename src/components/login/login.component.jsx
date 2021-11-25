@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HeroContainer } from '../hero/hero.style';
 import { FaFacebookSquare } from 'react-icons/fa';
 
@@ -12,8 +12,33 @@ import {
   LoginCTA,
 } from './login.style';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const Login = () => {
+  const auth = useAuth();
+  const [input, setInput] = useState({ email: '', password: '' });
+
+  
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    try {
+      auth.signIn(input.email, input.password);
+      
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log('Login successfull');
+    }
+  };
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setInput({ ...input, [name]: value });
+  };
+
   return (
     <HeroContainer>
       <Link to='/'>
@@ -22,16 +47,23 @@ const Login = () => {
 
       <LoginContainer>
         <LoginHeader>Sign In</LoginHeader>
-        <FormContainer>
+        <FormContainer onSubmit={handleSubmit}>
           <LoginInput
             type='email'
             label='Email Address'
-            placeholder='Email or phone Number'
+            placeholder='Email Address'
+            onChange={handleChange}
+            name='email'
           />
-          <LoginInput type='password' label='Password' placeholder='Password' />
-          <Link to='/browse'>
-            <LoginButton to='browse'>Sign In</LoginButton>
-          </Link>
+          <LoginInput
+            type='password'
+            label='Password'
+            placeholder='Password'
+            onChange={handleChange}
+            name='password'
+          />
+
+          <LoginButton type='submit'>Sign In</LoginButton>
         </FormContainer>
         <LoginCTA>
           <FaFacebookSquare size={30} />
