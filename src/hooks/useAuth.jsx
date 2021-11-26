@@ -33,18 +33,22 @@ export default AuthProvider;
 export const useProvideAuth = () => {
   const [user, setUser] = useState(null);
 
-  const signIn = (email, password) => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
-        setUser(response.user);
-        return response.user;
-      });
+  const signIn = async (email, password) => {
+    try {
+      await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((response) => {
+          setUser(response.user);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const signOut = () => {
     firebase.auth().signOut();
+    setUser(null);
   };
 
   //component mounts

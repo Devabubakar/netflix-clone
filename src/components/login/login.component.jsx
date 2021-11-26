@@ -11,24 +11,26 @@ import {
   LoginButton,
   LoginCTA,
 } from './login.style';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import Loader from '../loader/loader.component';
 
 const Login = () => {
+  const navigate = useNavigate();
   const auth = useAuth();
   const [input, setInput] = useState({ email: '', password: '' });
+  const [isLoading, setIsLoading] = useState(false);
 
-  
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      auth.signIn(input.email, input.password);
-      
+      setIsLoading(true);
+      await auth.signIn(input.email, input.password);
+      navigate('/browse');
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
-    } finally {
-      console.log('Login successfull');
+      setIsLoading(false);
     }
   };
 
@@ -39,7 +41,9 @@ const Login = () => {
     setInput({ ...input, [name]: value });
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <HeroContainer>
       <Link to='/'>
         <LogoTop to='/' />
@@ -54,6 +58,7 @@ const Login = () => {
             placeholder='Email Address'
             onChange={handleChange}
             name='email'
+            required={true}
           />
           <LoginInput
             type='password'
@@ -61,6 +66,7 @@ const Login = () => {
             placeholder='Password'
             onChange={handleChange}
             name='password'
+            required={true}
           />
 
           <LoginButton type='submit'>Sign In</LoginButton>
