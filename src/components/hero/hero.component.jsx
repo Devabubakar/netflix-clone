@@ -9,10 +9,12 @@ import {
   NavigationContainer,
 } from './hero.style';
 import CTAInput from '../input/input.component';
-import { ButtonLink } from '../button/button.style';
+import { ButtonLink, CustomButton } from '../button/button.style';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 function HeroSection() {
+  const auth = useAuth();
   return (
     <div>
       <HeroContainer>
@@ -22,7 +24,13 @@ function HeroSection() {
             <LogoContainer to='/' />
           </Link>
 
-          <ButtonLink to='/login'>Sign In</ButtonLink>
+          {auth.user ? (
+            <CustomButton onClick={() => auth.signOut()}>
+              sign out
+            </CustomButton>
+          ) : (
+            <ButtonLink to='/login'>sign in</ButtonLink>
+          )}
         </NavigationContainer>
         <HeroContent>
           <HeroHeader>Unlimited movies, TV shows and more.</HeroHeader>

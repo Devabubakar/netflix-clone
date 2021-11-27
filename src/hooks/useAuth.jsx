@@ -49,7 +49,7 @@ export const useProvideAuth = () => {
     return firebase
       .auth()
       .signOut()
-      .then(() => setUser(null));
+      .then(() => setUser(false));
   };
 
   //component mounts

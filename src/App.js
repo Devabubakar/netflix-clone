@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { lazy, Suspense } from 'react';
-import { useAuth } from './hooks/useAuth';
+
 import './App.css';
 import ErrorBoundary from './components/error.boundary/error.boundary';
 import Loader from './components/loader/loader.component';
@@ -13,8 +13,7 @@ const NotFound = lazy(() => import('./components/notfound/notfound.component'));
 const Browse = lazy(() => import('./pages/browse/browse.component'));
 
 function App() {
-  const auth = useAuth();
-  console.log(auth);
+ 
   return (
     <div className='App'>
       <AuthProvider>
@@ -24,6 +23,7 @@ function App() {
               <Routes>
                 <Route exact path='/' element={<LandingPage />} />
                 <Route path='/login' element={<Login />} />
+                
 
                 <Route
                   path='/browse'

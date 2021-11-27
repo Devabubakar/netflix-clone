@@ -28,7 +28,7 @@ const Login = () => {
         navigate('/browse');
       });
 
-      console.log('login successful');
+      
     } catch (error) {
       console.log(error);
     }
