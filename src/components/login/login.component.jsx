@@ -10,16 +10,17 @@ import {
   LoginInput,
   LoginButton,
   LoginCTA,
+  ErrorInput,
 } from './login.style';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
 const Login = () => {
   const navigate = useNavigate();
-  
 
   const auth = useAuth();
   const [input, setInput] = useState({ email: '', password: '' });
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,10 +28,8 @@ const Login = () => {
       await auth.signIn(input.email, input.password).then(() => {
         navigate('/browse');
       });
-
-      
     } catch (error) {
-      console.log(error);
+      setError(error);
     }
   };
 
@@ -66,6 +65,8 @@ const Login = () => {
             name='password'
             required={true}
           />
+
+          {error && <ErrorInput>{error.message}</ErrorInput>}
 
           <LoginButton type='submit'>Sign In</LoginButton>
         </FormContainer>
