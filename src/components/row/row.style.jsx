@@ -24,7 +24,6 @@ export const RowSlider = styled.div`
 `;
 export const RowItem = styled.img`
   height: 200px;
-  background: url(${(props) => props.img});
   width: auto;
   display: block;
   object-fit: contain;

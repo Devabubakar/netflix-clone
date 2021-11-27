@@ -70,6 +70,6 @@ export const BannerCta = styled.div`
     margin-bottom: 20vh;
   }
   @media only screen and (min-width: 50em) {
-    width: 28%;
+    width: 40%;
   }
 `;

@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RowContainer, RowItem, RowHeader, RowSlider } from './row.style';
 import useFetch from '../../hooks/useFetch';
 
+import ModalContainer from '../modal/modal.component';
+
 const Row = ({ url, heading }) => {
   const { data } = useFetch(url);
+  const [modalOpen, setIsOpen] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
-  const handleClick = async (id) => {
-    console.log(`${id} clicked`);
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=2e482009e9d3239d3067b1e6289b0a3b&language=en-US`
-    ).then((res) => res.json());
-    console.log(response);
+  const handleClick = (index) => {
+    setIsOpen(true);
+    if (clicked === index) {
+      return setClicked(null);
+    }
+    setClicked(index);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -18,12 +26,21 @@ const Row = ({ url, heading }) => {
       <RowHeader>{heading}</RowHeader>
       <RowSlider>
         {data?.results.map((movie, index) => (
-          <RowItem
-            src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt='test'
-            key={movie.id}
-            onClick={() => handleClick(movie.id)}
-          />
+          <div>
+            <RowItem
+              src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt='test'
+              key={movie.id}
+              onClick={() => handleClick(index)}
+            />
+            <ModalContainer
+              isOpen={modalOpen}
+              closeModal={closeModal}
+              movie={movie}
+              clicked={clicked}
+              key={index}
+            />
+          </div>
         ))}
       </RowSlider>
     </RowContainer>
