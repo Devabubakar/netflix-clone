@@ -89,3 +89,7 @@ export const LoginCTA = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const ErrorInput = styled.span`
+  color: red;
+`;

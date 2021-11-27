@@ -32,23 +32,24 @@ export default AuthProvider;
 //hook to create auth object handle states
 export const useProvideAuth = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const signIn = async (email, password) => {
-    try {
-      await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((response) => {
-          setUser(response.user);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+  const signIn = (email, password) => {
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        setUser(response.user);
+
+        return response.user;
+      });
   };
 
   const signOut = () => {
-    firebase.auth().signOut();
-    setUser(null);
+    return firebase
+      .auth()
+      .signOut()
+      .then(() => setUser(null));
   };
 
   //component mounts
@@ -56,15 +57,14 @@ export const useProvideAuth = () => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         setUser(user);
+        setLoading(false);
       } else {
         setUser(false);
       }
     });
     //clean up subscription
-    return () => {
-      unsubscribe();
-    };
-  });
+    return () => unsubscribe();
+  }, [user]);
 
-  return { user, signIn, signOut };
+  return { user, signIn, signOut, loading };
 };

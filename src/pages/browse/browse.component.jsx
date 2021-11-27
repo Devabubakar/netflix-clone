@@ -2,6 +2,7 @@ import React from 'react';
 
 import Banner from '../../components/banner/banner.component';
 import Footer from '../../components/footer/footer.component';
+
 import Row from '../../components/row/row.component';
 
 function Browse() {
@@ -9,7 +10,7 @@ function Browse() {
     <div>
       <Banner />
       <Row
-        url={`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`}
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=comedy&with_watch_monetization_types=flatrate`}
         heading='Popular Movies'
       />
 

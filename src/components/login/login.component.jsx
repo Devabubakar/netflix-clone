@@ -13,24 +13,24 @@ import {
 } from './login.style';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import Loader from '../loader/loader.component';
 
 const Login = () => {
   const navigate = useNavigate();
+  
+
   const auth = useAuth();
   const [input, setInput] = useState({ email: '', password: '' });
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      setIsLoading(true);
-      await auth.signIn(input.email, input.password);
-      navigate('/browse');
-      setIsLoading(false);
+      await auth.signIn(input.email, input.password).then(() => {
+        navigate('/browse');
+      });
+
+      console.log('login successful');
     } catch (error) {
       console.log(error);
-      setIsLoading(false);
     }
   };
 
@@ -41,9 +41,7 @@ const Login = () => {
     setInput({ ...input, [name]: value });
   };
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <HeroContainer>
       <Link to='/'>
         <LogoTop to='/' />
