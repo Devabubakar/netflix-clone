@@ -33,6 +33,7 @@ export default AuthProvider;
 export const useProvideAuth = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState('');
 
   const signIn = (email, password) => {
     return firebase
@@ -42,6 +43,16 @@ export const useProvideAuth = () => {
         setUser(response.user);
         setLoading(false);
 
+        return response.user;
+      });
+  };
+
+  const signUp = (email, password) => {
+    return firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((response) => {
+        setUser(response.user);
         return response.user;
       });
   };
@@ -71,5 +82,5 @@ export const useProvideAuth = () => {
     return () => unsubscribe();
   }, [user]);
 
-  return { user, signIn, signOut, loading };
+  return { user, signIn, signOut, loading, signUp, email, setEmail };
 };

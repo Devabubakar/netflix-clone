@@ -32,7 +32,7 @@ export const InputContainer = styled.div`
   position: relative;
 `;
 
-export const CtaContainer = styled.div`
+export const CtaContainer = styled.form`
   display: block;
   margin: 0 auto;
   text-align: center;

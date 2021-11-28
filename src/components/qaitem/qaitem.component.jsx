@@ -51,7 +51,7 @@ function QAItem() {
       <QAHeader small>
         Ready to watch ? Enter your email to create or restart your membership
       </QAHeader>
-      <CTAInput small placeholder='Email address' />
+      <CTAInput  placeholder='Email address' />
     </QASection>
   );
 }

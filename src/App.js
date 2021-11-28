@@ -13,7 +13,7 @@ const LandingPage = lazy(() => import('./pages/landing/landing.component'));
 const Login = lazy(() => import('./components/login/login.component'));
 const NotFound = lazy(() => import('./components/notfound/notfound.component'));
 const Browse = lazy(() => import('./pages/browse/browse.component'));
-
+const SignUp = lazy(() => import('./components/signup/signup.component'));
 function App() {
   return (
     <div className='App'>
@@ -24,6 +24,7 @@ function App() {
               <Routes>
                 <Route exact path='/' element={<LandingPage />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<SignUp />} />
                 <Route
                   path='/trailers/:id'
                   element={

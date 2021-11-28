@@ -11,24 +11,26 @@ import {
   LoginButton,
   LoginCTA,
   ErrorInput,
-} from './login.style';
+} from '../login/login.style';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Loader from '../loader/loader.component';
 
-const Login = () => {
+const SignUp = () => {
   const navigate = useNavigate();
-
   const auth = useAuth();
-  const [input, setInput] = useState({ email: '', password: '' });
+  const email = auth.email;
+
+  const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
+    console.log(email, password);
     event.preventDefault();
     try {
       setLoading(true);
-      await auth.signIn(input.email, input.password).then(() => {
+      await auth.signUp(email, password).then(() => {
         navigate('/browse');
         setLoading(false);
       });
@@ -41,11 +43,7 @@ const Login = () => {
   if (loading) return <Loader />;
 
   const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    
-
-    setInput({ ...input, [name]: value });
+    setPassword(event.target.value);
   };
 
   return (
@@ -55,15 +53,16 @@ const Login = () => {
       </Link>
 
       <LoginContainer>
-        <LoginHeader>Sign In</LoginHeader>
+        <LoginHeader>Sign Up</LoginHeader>
         <FormContainer onSubmit={handleSubmit}>
           <LoginInput
             type='email'
             label='Email Address'
             placeholder='Email Address'
-            onChange={handleChange}
             name='email'
+            value={email}
             required={true}
+            readOnly={true}
           />
           <LoginInput
             type='password'
@@ -81,7 +80,7 @@ const Login = () => {
         <LoginCTA>
           <FaFacebookSquare size={30} />
           <Link to='#' style={{ textDecoration: 'none', color: 'white' }}>
-            Login with Facebook
+            Sign Up with Facebook
           </Link>
         </LoginCTA>
       </LoginContainer>
@@ -89,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
