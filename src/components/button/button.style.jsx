@@ -12,12 +12,13 @@ export const buttonStyle = css`
   @media only screen and (min-width: 50em) {
     padding: ${(props) => (props.large ? '1.3rem 3rem' : '.4rem 1.5rem')};
     border-radius: ${(props) => (props.large ? '4px' : '5px')};
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    border-top-left-radius: ${(props) => (props.signout ? null : 0)};
+    border-bottom-left-radius: ${(props) => (props.signout ? null : 0)};
   }
 `;
 export const CustomButton = styled.button`
   ${buttonStyle}
+ 
 `;
 export const ButtonLink = styled(Link)`
   text-decoration: none;
@@ -28,11 +29,11 @@ export const ButtonLink = styled(Link)`
   }
 `;
 
- // const [movies, setMovies] = useState([]);
-  // useEffect(() => {
-  //   const fetchMovies = async () => {
-  //     const movies = await fetch('/browse').then((res) => res.json());
-  //     setMovies(movies.data.results);
-  //   };
-  //   fetchMovies();
-  // }, []);
+// const [movies, setMovies] = useState([]);
+// useEffect(() => {
+//   const fetchMovies = async () => {
+//     const movies = await fetch('/browse').then((res) => res.json());
+//     setMovies(movies.data.results);
+//   };
+//   fetchMovies();
+// }, []);

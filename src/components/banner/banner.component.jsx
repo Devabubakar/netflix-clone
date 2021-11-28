@@ -41,10 +41,10 @@ function Banner() {
         </BannerHeader>
         <BannerParagraph>{truncateString(movie.overview, 250)}</BannerParagraph>
         <BannerCta>
-          <BannerButton>
+          <BannerButton to={`/trailers/${movie.id}`}>
             <FaPlay /> Play
           </BannerButton>
-          <BannerButton info>
+          <BannerButton info to={`/trailers/${movie.id}`}>
             <FaInfoCircle size={20} /> More Info
           </BannerButton>
         </BannerCta>

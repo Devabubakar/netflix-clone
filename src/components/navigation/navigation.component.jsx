@@ -4,26 +4,38 @@ import React from 'react';
 import {
   LogoContainer,
   NavigationContainer,
-  NavItem,
   NavIcons,
+  NavItem,
 } from './navigation.style';
 import { Link } from 'react-router-dom';
-import { FaSearch, FaBell } from 'react-icons/fa';
+import { useAuth } from '../../hooks/useAuth';
+import { ButtonLink, CustomButton } from '../button/button.style';
+import Loader from '../loader/loader.component';
+import { useLocation } from 'react-router';
 
 function Navigation() {
-  return (
+  const auth = useAuth();
+  const location = useLocation();
+
+  return auth.loading ? (
+    <Loader />
+  ) : (
     <NavigationContainer>
       <Link to='/'>
         <LogoContainer to='/' />
       </Link>
-      <NavItem>Home</NavItem>
-      <NavItem>Tv Shows</NavItem>
-      <NavItem>Movies</NavItem>
-      <NavItem>New and Popular</NavItem>
-      <NavItem>My List</NavItem>
+      {location.pathname === '/' ? (
+        <NavItem to='/browse'>Browse</NavItem>
+      ) : null}
+
       <NavIcons>
-        <FaSearch size={20} id='icons' />
-        <FaBell size={20} id='icons' />
+        {auth.user ? (
+          <CustomButton signout onClick={() => auth.signOut()}>
+            Logout
+          </CustomButton>
+        ) : (
+          <ButtonLink to='/login'>Login</ButtonLink>
+        )}
       </NavIcons>
 
       {/* <ButtonLink to='/login'>Sign In</ButtonLink> */}

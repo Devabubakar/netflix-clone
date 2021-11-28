@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const BannerContainer = styled.div`
   object-fit: contain;
@@ -45,7 +46,7 @@ export const BannerParagraph = styled.p`
     width: 50%;
   }
 `;
-export const BannerButton = styled.button`
+export const BannerButton = styled(Link)`
   width: ${(props) => (props.info ? '120px' : '80px')};
   height: 35px;
   border: none;
@@ -55,8 +56,10 @@ export const BannerButton = styled.button`
   border-radius: 4px;
   font-family: Netflix Sans Medium;
   gap: 10px;
+  text-decoration: none;
+  color: white;
 
-  background-color: ${(props) => (props.info ? 'grey' : null)};
+  background-color: ${(props) => (props.info ? 'grey' : 'red')};
   color: ${(props) => (props.info ? 'white' : null)};
 `;
 

@@ -4,4 +4,5 @@ export const Wrapper = styled.div`
   margin: 0;
   color: white;
   text-align: center;
+  
 `;

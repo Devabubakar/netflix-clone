@@ -7,3 +7,4 @@ export default function ProtectedRoute({ children }) {
   if (auth.loading === true) return <Loader />;
   return auth.user ? children : <Navigate to='/login' replace />;
 }
+

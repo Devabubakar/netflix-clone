@@ -1,9 +1,12 @@
 import React from 'react';
 
-import Banner from '../../components/banner/banner.component';
-import Footer from '../../components/footer/footer.component';
-
-import Row from '../../components/row/row.component';
+const Row = React.lazy(() => import('../../components/row/row.component'));
+const Banner = React.lazy(() =>
+  import('../../components/banner/banner.component')
+);
+const Footer = React.lazy(() =>
+  import('../../components/footer/footer.component')
+);
 
 function Browse() {
   return (
@@ -38,7 +41,6 @@ function Browse() {
         url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=10752`}
         heading='War'
       />{' '}
-      
       <Row
         url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=18&adult=false`}
         heading='Drama'

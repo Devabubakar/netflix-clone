@@ -14,6 +14,7 @@ import {
 } from './login.style';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import Loader from '../loader/loader.component';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,17 +22,23 @@ const Login = () => {
   const auth = useAuth();
   const [input, setInput] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      setLoading(true);
       await auth.signIn(input.email, input.password).then(() => {
         navigate('/browse');
+        setLoading(false);
       });
     } catch (error) {
       setError(error);
+      setLoading(false);
     }
   };
+
+  if (loading) return <Loader />;
 
   const handleChange = (event) => {
     const name = event.target.name;

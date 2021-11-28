@@ -40,6 +40,7 @@ export const useProvideAuth = () => {
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
         setUser(response.user);
+        setLoading(false);
 
         return response.user;
       });
@@ -49,7 +50,10 @@ export const useProvideAuth = () => {
     return firebase
       .auth()
       .signOut()
-      .then(() => setUser(false));
+      .then(() => {
+        setUser(false);
+        setLoading(false);
+      });
   };
 
   //component mounts
@@ -60,6 +64,7 @@ export const useProvideAuth = () => {
         setLoading(false);
       } else {
         setUser(false);
+        setLoading(false);
       }
     });
     //clean up subscription

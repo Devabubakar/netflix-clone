@@ -5,33 +5,17 @@ import {
   HeroHeader,
   HeroContent,
   HeroParagraph,
-  LogoContainer,
-  NavigationContainer,
 } from './hero.style';
 import CTAInput from '../input/input.component';
-import { ButtonLink, CustomButton } from '../button/button.style';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import Navigation from '../navigation/navigation.component';
 
 function HeroSection() {
-  const auth = useAuth();
   return (
     <div>
       <HeroContainer>
         {/* !TODO:use the navigation component */}
-        <NavigationContainer>
-          <Link to='/'>
-            <LogoContainer to='/' />
-          </Link>
+        <Navigation />
 
-          {auth.user ? (
-            <CustomButton onClick={() => auth.signOut()}>
-              sign out
-            </CustomButton>
-          ) : (
-            <ButtonLink to='/login'>sign in</ButtonLink>
-          )}
-        </NavigationContainer>
         <HeroContent>
           <HeroHeader>Unlimited movies, TV shows and more.</HeroHeader>
           <HeroParagraph>Watch Anywhere , Cancel Anytime</HeroParagraph>

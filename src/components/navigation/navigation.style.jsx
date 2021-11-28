@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-
+import { Link } from 'react-router-dom';
 export const LogoContainer = styled(Logo)`
   height: 25px;
   cursor: pointer;
@@ -10,12 +10,12 @@ export const LogoContainer = styled(Logo)`
   }
 `;
 
-export const NavItem = styled.div`
+export const NavItem = styled(Link)`
   display: none;
+  color: white;
+  text-decoration: none;
 
-  &:first-of-type {
-    margin-left: 40px;
-  }
+  margin-left: 40px;
 
   @media only screen and (min-width: 45em) {
     display: flex;
@@ -34,7 +34,6 @@ export const NavigationContainer = styled.div`
   display: flex;
   color: white;
   text-shadow: 0 1px 0 black;
-  
 
   align-items: center;
   padding: 5% 5%;
