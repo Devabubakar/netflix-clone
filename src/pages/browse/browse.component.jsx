@@ -10,27 +10,43 @@ function Browse() {
     <div>
       <Banner />
       <Row
-        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=comedy&with_watch_monetization_types=flatrate`}
-        heading='Popular Movies'
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=27`}
+        heading='Horror Movies'
       />
-
       <Row
-        url={`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`}
-        heading='Trending Now'
-      />
-
-      <Row
-        url={`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`}
-        heading='Top Rated Movies'
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=28`}
+        heading='Action Packed'
       />
       <Row
         url={`
-        https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`}
-        heading='Popular TV Shows'
+        https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=12`}
+        heading='Adventure'
       />
       <Row
-        url={`https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`}
-        heading='Airing Today'
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=53`}
+        heading='Thriller'
+      />
+      <Row
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=35`}
+        heading='Comedy'
+      />
+      <Row
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=16`}
+        heading='Animation'
+      />
+      <Row
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=10752`}
+        heading='War'
+      />{' '}
+      
+      <Row
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=18&adult=false`}
+        heading='Drama'
+      />
+      <Row
+        url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=878&adult=false
+    `}
+        heading='Sciency Fiction'
       />
       <Footer />
     </div>

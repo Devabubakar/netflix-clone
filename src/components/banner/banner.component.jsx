@@ -14,7 +14,7 @@ import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
 function Banner() {
   const { data, isLoading } = useFetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false`
   );
 
   function truncateString(string, limit) {

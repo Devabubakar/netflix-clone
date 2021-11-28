@@ -2,7 +2,7 @@ import React from 'react';
 import {
   TrailerContainer,
   TrailerIframe,
-  TrailerWrapper,
+  
   TrailerError,
   TrailerErrorHeader,
 } from './trailer.style';
@@ -19,7 +19,7 @@ const Trailer = ({ id }) => {
   if (isLoading) return <Loader />;
 
   return (
-    <TrailerWrapper>
+
       <TrailerContainer>
         {/* first item is usually a trailer interview */}
         {data?.results.length !== 0 && data !== null ? (
@@ -42,7 +42,7 @@ const Trailer = ({ id }) => {
           </TrailerError>
         )}
       </TrailerContainer>
-    </TrailerWrapper>
+   
   );
 };
 

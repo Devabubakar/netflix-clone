@@ -17,12 +17,7 @@ export const TrailerContainer = styled.div`
 export const TrailerIframe = styled.iframe`
   height: 60vh;
 `;
-export const TrailerWrapper = styled.div`
-  background: #000000;
-  margin: 0;
-  color: white;
-  text-align: center;
-`;
+
 
 export const TrailerError = styled.div`
   align-items: center;
