@@ -44,7 +44,7 @@ function Banner() {
           <BannerButton to={`/trailers/${movie.id}`}>
             <FaPlay /> Play
           </BannerButton>
-          <BannerButton info to={`/trailers/${movie.id}`}>
+          <BannerButton info='true' to={`/trailers/${movie.id}`}>
             <FaInfoCircle size={20} /> More Info
           </BannerButton>
         </BannerCta>

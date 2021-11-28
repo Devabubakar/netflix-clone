@@ -26,7 +26,7 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
-    console.log(email, password);
+    
     event.preventDefault();
     try {
       setLoading(true);

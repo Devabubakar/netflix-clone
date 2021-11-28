@@ -11,7 +11,7 @@ const Row = ({ url, heading }) => {
       <RowHeader>{heading}</RowHeader>
       <RowSlider>
         {data?.results.map((movie, index) => (
-          <Link to={`/trailers/${movie.id}`}>
+          <Link to={`/trailers/${movie.id}`} key={movie.id}>
             <RowItem
               src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt='test'
