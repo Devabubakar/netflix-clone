@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const TrailerContainer = styled.div`
   overflow: hidden;
-  padding-bottom: 56.25%;
+  
   position: relative;
   height: 100%;
 

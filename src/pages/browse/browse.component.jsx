@@ -1,12 +1,7 @@
 import React from 'react';
-
-const Row = React.lazy(() => import('../../components/row/row.component'));
-const Banner = React.lazy(() =>
-  import('../../components/banner/banner.component')
-);
-const Footer = React.lazy(() =>
-  import('../../components/footer/footer.component')
-);
+import Row from '../../components/row/row.component';
+import Banner from '../../components/banner/banner.component';
+import Footer from '../../components/footer/footer.component';
 
 function Browse() {
   return (
