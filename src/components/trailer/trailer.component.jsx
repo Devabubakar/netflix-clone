@@ -3,7 +3,11 @@ import {
   TrailerContainer,
   TrailerIframe,
   TrailerWrapper,
+  TrailerError,
+  TrailerErrorHeader,
 } from './trailer.style';
+
+import ErrorImage from '../../assets/404.jpg';
 
 import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
@@ -20,7 +24,6 @@ const Trailer = () => {
     <TrailerWrapper>
       <TrailerContainer>
         {/* first item is usually a trailer interview */}
-
         {data?.results.length !== 0 && data !== null ? (
           <TrailerIframe
             height='320'
@@ -32,9 +35,14 @@ const Trailer = () => {
             allowFullScreen
           />
         ) : (
-          <h1>Trailer Not Available</h1>
+          <TrailerError>
+            <img src={ErrorImage} alt='errorimage' />
+            <TrailerErrorHeader>
+              Trailer currently unavailable at this time . Check on it
+              periodically , in the meantime explore similar movies below
+            </TrailerErrorHeader>
+          </TrailerError>
         )}
-        {error && <h1>Trailer Not Available</h1>}
       </TrailerContainer>
     </TrailerWrapper>
   );
