@@ -11,12 +11,10 @@ import ErrorImage from '../../assets/404.jpg';
 
 import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
-import { useParams } from 'react-router-dom';
 
-const Trailer = () => {
-  const params = useParams();
-  const { data, isLoading, error } = useFetch(
-    `https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US?type=Trailer`
+const Trailer = ({ id }) => {
+  const { data, isLoading } = useFetch(
+    `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US?type=Trailer`
   );
   if (isLoading) return <Loader />;
 
