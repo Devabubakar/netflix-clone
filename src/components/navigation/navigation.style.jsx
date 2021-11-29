@@ -17,10 +17,9 @@ export const NavItem = styled(Link)`
 
   margin-left: 40px;
 
-  @media only screen and (min-width: 45em) {
     display: flex;
     padding: clamp(10px, 20vh, 15px);
-  }
+  
 `;
 
 export const NavIcons = styled.div`
