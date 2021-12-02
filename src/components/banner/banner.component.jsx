@@ -14,18 +14,21 @@ import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
 function Banner() {
   const { data, isLoading } = useFetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false`
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
   );
 
-  function truncateString(string, limit) {
+  const truncateString = (string, limit) => {
     if (string.length > limit) {
       return string.substring(0, limit) + '...';
     } else {
       return string;
     }
-  }
+  };
 
-  const movie = data?.results[Math.floor(Math.random() * data.results.length)];
+  const movie = React.useMemo(
+    () => data?.results[Math.floor(Math.random() * data.results.length)],
+    [data]
+  );
 
   return isLoading ? (
     <Loader />
@@ -53,4 +56,4 @@ function Banner() {
   );
 }
 
-export default Banner;
+export default React.memo(Banner);
