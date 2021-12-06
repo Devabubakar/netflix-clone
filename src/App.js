@@ -20,40 +20,42 @@ const Navigation = lazy(() =>
 function App() {
   return (
     <div className='App'>
-      <AuthProvider>
-        <Router>
-          <ErrorBoundary>
-            <Suspense fallback={<Loader />}>
+      <Router>
+        <ErrorBoundary>
+          <Suspense fallback={<Loader />}>
+            <AuthProvider>
               <Navigation />
-              <Routes>
-                <Route exact path='/' element={<LandingPage />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/signup' element={<SignUp />} />
-                <Route
-                  path='/trailers/:id'
-                  element={
-                    <ProtectedRoute>
-                      <Watch />
-                    </ProtectedRoute>
-                  }
-                />
+            </AuthProvider>
+            <Routes>
+              <Route exact path='/' element={<LandingPage />} />
+              <Route
+                path='/login'
+                element={
+                  <AuthProvider>
+                    <Login />
+                  </AuthProvider>
+                }
+              />
+              <Route path='/signup' element={<SignUp />} />
+              <Route path='/trailers/:id' element={<Watch />} />
 
-                <Route
-                  path='/browse'
-                  element={
+              <Route
+                path='/browse'
+                element={
+                  <AuthProvider>
                     <ProtectedRoute>
                       <Browse />
                     </ProtectedRoute>
-                  }
-                />
+                  </AuthProvider>
+                }
+              />
 
-                {/* Global Error Handler */}
-                <Route path='*' element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </ErrorBoundary>
-        </Router>
-      </AuthProvider>
+              {/* Global Error Handler */}
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </Router>
     </div>
   );
 }
