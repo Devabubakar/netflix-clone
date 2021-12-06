@@ -23,8 +23,9 @@ export const RowSlider = styled.div`
   gap: 10px;
 `;
 export const RowItem = styled.img`
-  height: 200px;
-  width: auto;
+  height: 100%;
+ 
+  width: 100px;
   display: block;
   object-fit: contain;
   transition: transform 500ms;

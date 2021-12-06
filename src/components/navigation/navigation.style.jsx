@@ -17,9 +17,8 @@ export const NavItem = styled(Link)`
 
   margin-left: 40px;
 
-    display: flex;
-    padding: clamp(10px, 20vh, 15px);
-  
+  display: flex;
+  padding: clamp(10px, 20vh, 15px);
 `;
 
 export const NavIcons = styled.div`
@@ -36,9 +35,9 @@ export const NavigationContainer = styled.div`
 
   align-items: center;
   padding: 5% 5%;
-  position: relative;
+  position: absolute;
   z-index: 10;
-
+  width: 100%;
   @media only screen and (min-width: 40em) {
     padding: 2% 4.5%;
   }

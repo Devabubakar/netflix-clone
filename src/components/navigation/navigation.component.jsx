@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import { ButtonLink } from '../button/button.style';
+
 import {
   LogoContainer,
   NavigationContainer,
@@ -10,16 +10,14 @@ import {
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { ButtonLink, CustomButton } from '../button/button.style';
-import Loader from '../loader/loader.component';
+
 import { useLocation } from 'react-router';
 
 function Navigation() {
   const auth = useAuth();
   const location = useLocation();
 
-  return auth.loading ? (
-    <Loader />
-  ) : (
+  return (
     <NavigationContainer>
       <Link to='/'>
         <LogoContainer to='/' />

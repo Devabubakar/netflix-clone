@@ -6,15 +6,17 @@ import {
   HeroContent,
   HeroParagraph,
 } from './hero.style';
-import CTAInput from '../input/input.component';
-import Navigation from '../navigation/navigation.component';
+
+
+const CTAInput = React.lazy(() => import('../input/input.component'));
+
 
 function HeroSection() {
   return (
     <div>
       <HeroContainer>
-        {/* !TODO:use the navigation component */}
-        <Navigation />
+       
+        
 
         <HeroContent>
           <HeroHeader>Unlimited movies, TV shows and more.</HeroHeader>

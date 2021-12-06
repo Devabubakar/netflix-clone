@@ -9,7 +9,6 @@ import {
 } from './banner.style';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
-import Navigation from '../navigation/navigation.component';
 import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
 function Banner() {
@@ -25,10 +24,7 @@ function Banner() {
     }
   };
 
-  const movie = React.useMemo(
-    () => data?.results[Math.floor(Math.random() * data.results.length)],
-    [data]
-  );
+  const movie = data?.results[Math.floor(Math.random() * data.results.length)];
 
   return isLoading ? (
     <Loader />
@@ -37,7 +33,6 @@ function Banner() {
       img={`http://image.tmdb.org/t/p/w1280/${movie.backdrop_path}
 `}
     >
-      <Navigation />
       <BannerContent>
         <BannerHeader>
           {movie.title || movie.name || movie.original_title}

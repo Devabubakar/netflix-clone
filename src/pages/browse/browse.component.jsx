@@ -53,4 +53,4 @@ function Browse() {
   );
 }
 
-export default Browse;
+export default React.memo(Browse);

@@ -11,7 +11,6 @@ import CTAInput from '../input/input.component';
 import { FaPlus, FaTimes } from 'react-icons/fa';
 import { QA } from '../../data/QA';
 
-
 function ListItem({ qaitem, clicked, toggleItem, index }) {
   return (
     <div>
@@ -51,9 +50,9 @@ function QAItem() {
       <QAHeader small>
         Ready to watch ? Enter your email to create or restart your membership
       </QAHeader>
-      <CTAInput  placeholder='Email address' />
+      <CTAInput placeholder='Email address' />
     </QASection>
   );
 }
 
-export default QAItem;
+export default React.memo(QAItem);

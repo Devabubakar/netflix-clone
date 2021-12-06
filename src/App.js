@@ -14,6 +14,9 @@ const Login = lazy(() => import('./components/login/login.component'));
 const NotFound = lazy(() => import('./components/notfound/notfound.component'));
 const Browse = lazy(() => import('./pages/browse/browse.component'));
 const SignUp = lazy(() => import('./components/signup/signup.component'));
+const Navigation = lazy(() =>
+  import('./components/navigation/navigation.component')
+);
 function App() {
   return (
     <div className='App'>
@@ -21,6 +24,7 @@ function App() {
         <Router>
           <ErrorBoundary>
             <Suspense fallback={<Loader />}>
+              <Navigation />
               <Routes>
                 <Route exact path='/' element={<LandingPage />} />
                 <Route path='/login' element={<Login />} />

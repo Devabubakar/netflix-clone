@@ -2,7 +2,6 @@ import React from 'react';
 import {
   TrailerContainer,
   TrailerIframe,
-  
   TrailerError,
   TrailerErrorHeader,
 } from './trailer.style';
@@ -19,31 +18,30 @@ const Trailer = ({ id }) => {
   if (isLoading) return <Loader />;
 
   return (
-
-      <TrailerContainer>
-        {/* first item is usually a trailer interview */}
-        {data?.results.length !== 0 && data !== null ? (
-          <TrailerIframe
-            height='320'
-            width='100%'
-            src={`https://www.youtube.com/embed/${data.results[0].key}`}
-            frameBorder='0'
-            allow='autoplay'
-            modestBranding='1'
-            allowFullScreen
-          />
-        ) : (
-          <TrailerError>
-            <img src={ErrorImage} alt='errorimage' />
-            <TrailerErrorHeader>
-              Trailer currently unavailable at this time . Check on it
-              periodically , in the meantime explore similar movies below
-            </TrailerErrorHeader>
-          </TrailerError>
-        )}
-      </TrailerContainer>
-   
+    <TrailerContainer>
+      {/* first item is usually a trailer interview */}
+      {data?.results.length !== 0 && data !== null ? (
+        <TrailerIframe
+          height='320'
+          width='100%'
+          src={`https://www.youtube.com/embed/${data.results[0].key}`}
+          frameBorder='0'
+          allow='autoplay'
+          modestBranding='1'
+          allowFullScreen
+          loading='lazy'
+        />
+      ) : (
+        <TrailerError>
+          <img src={ErrorImage} alt='errorimage' />
+          <TrailerErrorHeader>
+            Trailer currently unavailable at this time . Check on it
+            periodically , in the meantime explore similar movies below
+          </TrailerErrorHeader>
+        </TrailerError>
+      )}
+    </TrailerContainer>
   );
 };
 
-export default Trailer;
+export default React.memo(Trailer);

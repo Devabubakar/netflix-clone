@@ -1,8 +1,19 @@
 import React from 'react';
-import HeroSection from '../../components/hero/hero.component';
-import StorySection from '../../components/story/story.component';
-import QAItem from '../../components/qaitem/qaitem.component';
-import Footer from '../../components/footer/footer.component';
+
+const HeroSection = React.lazy(() =>
+  import('../../components/hero/hero.component')
+);
+const StorySection = React.lazy(() =>
+  import('../../components/story/story.component')
+);
+
+const QAItem = React.lazy(() =>
+  import('../../components/qaitem/qaitem.component')
+);
+
+const Footer = React.lazy(() =>
+  import('../../components/footer/footer.component')
+);
 
 function LandingPage() {
   return (

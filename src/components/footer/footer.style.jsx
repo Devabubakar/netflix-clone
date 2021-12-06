@@ -28,6 +28,6 @@ export const FooterContent = styled.div`
   /* grid-template-columns: repeat(auto-fill, minmax(9rem, 2fr)); */
 `;
 
-export const FooterHeader = styled.h5`
+export const FooterHeader = styled.h3`
   font-size: ${(props) => (props.large ? '.985rem' : null)};
 `;

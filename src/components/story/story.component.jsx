@@ -20,7 +20,11 @@ function StorySection() {
           </StoryParagraph>
           <StoryLink to='/download'>Get the app </StoryLink>
         </div>
-        <StoryImage src={StoryImageLink} />
+        <StoryImage
+          src={StoryImageLink}
+          alt='storyImage'
+          style={{ width: '100%', height: '100%' }}
+        />
       </Story>
     </div>
   );
