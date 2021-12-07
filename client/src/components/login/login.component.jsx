@@ -4,7 +4,7 @@ import { FaFacebookSquare } from 'react-icons/fa';
 
 import {
   LoginContainer,
-  LogoTop,
+
   LoginHeader,
   FormContainer,
   LoginInput,
@@ -50,9 +50,7 @@ const Login = () => {
 
   return (
     <HeroContainer>
-      <Link to='/'>
-        <LogoTop to='/' />
-      </Link>
+   
 
       <LoginContainer>
         <LoginHeader>Sign In</LoginHeader>
