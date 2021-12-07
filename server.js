@@ -3,14 +3,15 @@ const app = express();
 const enforce = require('express-sslify');
 const compression = require('compression');
 
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, (req, res) => {
   console.log(`Server running on port : ${PORT}`);
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
