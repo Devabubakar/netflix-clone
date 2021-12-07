@@ -26,7 +26,6 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
-    
     event.preventDefault();
     try {
       setLoading(true);
@@ -48,10 +47,6 @@ const SignUp = () => {
 
   return (
     <HeroContainer>
-      <Link to='/'>
-        <LogoTop to='/' />
-      </Link>
-
       <LoginContainer>
         <LoginHeader>Sign Up</LoginHeader>
         <FormContainer onSubmit={handleSubmit}>
@@ -75,14 +70,8 @@ const SignUp = () => {
 
           {error && <ErrorInput>{error.message}</ErrorInput>}
 
-          <LoginButton type='submit'>Sign In</LoginButton>
+          <LoginButton type='submit'>Sign Up</LoginButton>
         </FormContainer>
-        <LoginCTA>
-          <FaFacebookSquare size={30} />
-          <Link to='#' style={{ textDecoration: 'none', color: 'white' }}>
-            Sign Up with Facebook
-          </Link>
-        </LoginCTA>
       </LoginContainer>
     </HeroContainer>
   );

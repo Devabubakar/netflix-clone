@@ -8,3 +8,6 @@ export default function ProtectedRoute({ children }) {
   return auth.user ? children : <Navigate to='/login' replace />;
 }
 
+
+
+

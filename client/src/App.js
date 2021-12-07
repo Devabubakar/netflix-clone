@@ -24,35 +24,27 @@ function App() {
         <ErrorBoundary>
           <Suspense fallback={<Loader />}>
             <AuthProvider>
-              <Navigation />
-            </AuthProvider>
+            <Navigation />
+
             <Routes>
               <Route exact path='/' element={<LandingPage />} />
-              <Route
-                path='/login'
-                element={
-                  <AuthProvider>
-                    <Login />
-                  </AuthProvider>
-                }
-              />
+              <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<SignUp />} />
               <Route path='/trailers/:id' element={<Watch />} />
 
               <Route
                 path='/browse'
                 element={
-                  <AuthProvider>
-                    <ProtectedRoute>
-                      <Browse />
-                    </ProtectedRoute>
-                  </AuthProvider>
+                  <ProtectedRoute>
+                    <Browse />
+                  </ProtectedRoute>
                 }
               />
 
               {/* Global Error Handler */}
               <Route path='*' element={<NotFound />} />
             </Routes>
+            </AuthProvider>
           </Suspense>
         </ErrorBoundary>
       </Router>

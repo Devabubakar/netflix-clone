@@ -84,12 +84,6 @@ export const LoginButton = styled.button`
   }
 `;
 
-export const LoginCTA = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const ErrorInput = styled.span`
   color: red;
 `;

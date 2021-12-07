@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import {
   LogoContainer,
   NavigationContainer,
@@ -26,17 +25,18 @@ function Navigation() {
         <NavItem to='/browse'>Browse</NavItem>
       ) : null}
 
-      <NavIcons>
-        {auth.user ? (
-          <CustomButton signout onClick={() => auth.signOut()}>
-            Logout
-          </CustomButton>
-        ) : (
-          <ButtonLink to='/login'>Login</ButtonLink>
-        )}
-      </NavIcons>
-
-      {/* <ButtonLink to='/login'>Sign In</ButtonLink> */}
+      {location.pathname === '/login' ||
+      location.pathname === '/signup' ? null : (
+        <NavIcons>
+          {auth.user ? (
+            <CustomButton signout onClick={() => auth.signOut()}>
+              Logout
+            </CustomButton>
+          ) : (
+            <ButtonLink to='/login'>Login</ButtonLink>
+          )}
+        </NavIcons>
+      )}
     </NavigationContainer>
   );
 }

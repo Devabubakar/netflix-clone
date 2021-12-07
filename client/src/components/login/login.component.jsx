@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HeroContainer } from '../hero/hero.style';
-import { FaFacebookSquare } from 'react-icons/fa';
+
 
 import {
   LoginContainer,
@@ -9,7 +9,7 @@ import {
   FormContainer,
   LoginInput,
   LoginButton,
-  LoginCTA,
+
   ErrorInput,
 } from './login.style';
 import { Link, useNavigate } from 'react-router-dom';
@@ -76,12 +76,7 @@ const Login = () => {
 
           <LoginButton type='submit'>Sign In</LoginButton>
         </FormContainer>
-        <LoginCTA>
-          <FaFacebookSquare size={30} />
-          <Link to='#' style={{ textDecoration: 'none', color: 'white' }}>
-            Login with Facebook
-          </Link>
-        </LoginCTA>
+        
       </LoginContainer>
     </HeroContainer>
   );
