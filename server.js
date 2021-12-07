@@ -9,9 +9,13 @@ app.listen(PORT, (req, res) => {
   console.log(`Server running on port : ${PORT}`);
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 if (process.env.NODE_ENV === 'production') {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(compression());
+
   app.use(express.static(path.join(__dirname, 'client/build')));
 
   app.get('*', function (req, res) {
