@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { HeroContainer } from '../hero/hero.style';
 
-
 import {
   LoginContainer,
-
   LoginHeader,
   FormContainer,
   LoginInput,
   LoginButton,
-
   ErrorInput,
 } from './login.style';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Loader from '../loader/loader.component';
 
@@ -43,15 +40,12 @@ const Login = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    
 
     setInput({ ...input, [name]: value });
   };
 
   return (
     <HeroContainer>
-   
-
       <LoginContainer>
         <LoginHeader>Sign In</LoginHeader>
         <FormContainer onSubmit={handleSubmit}>
@@ -76,7 +70,6 @@ const Login = () => {
 
           <LoginButton type='submit'>Sign In</LoginButton>
         </FormContainer>
-        
       </LoginContainer>
     </HeroContainer>
   );

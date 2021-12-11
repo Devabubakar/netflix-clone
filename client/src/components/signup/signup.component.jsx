@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import { HeroContainer } from '../hero/hero.style';
-import { FaFacebookSquare } from 'react-icons/fa';
 
 import {
   LoginContainer,
-  LogoTop,
   LoginHeader,
   FormContainer,
   LoginInput,
   LoginButton,
-  LoginCTA,
   ErrorInput,
 } from '../login/login.style';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import Loader from '../loader/loader.component';
 

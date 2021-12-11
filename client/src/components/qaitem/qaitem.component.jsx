@@ -28,12 +28,16 @@ function ListItem({ qaitem, clicked, toggleItem, index }) {
 }
 function QAItem() {
   const [clicked, setClicked] = useState(false);
-  const toggleItem = (index) => {
-    if (clicked === index) {
-      return setClicked(null);
-    }
-    setClicked(index);
-  };
+  const toggleItem = React.useCallback(
+    (index) => {
+      if (clicked === index) {
+        return setClicked(null);
+      }
+      setClicked(index);
+    },
+    [clicked]
+  );
+
   return (
     <QASection>
       <QAHeader>Frequently Asked Questions</QAHeader>

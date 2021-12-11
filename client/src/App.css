@@ -5,6 +5,7 @@
   padding: 0;
   font-family: Netflix Sans Regular;
   scroll-behavior: smooth;
+  font-display: swap;
 }
 
 
@@ -23,6 +24,7 @@
   font-family: 'Netflix Sans Icon';
   font-style: normal;
   font-weight: normal;
+  font-display:swap;
   src: local('Netflix Sans Icon'),
     url('./fonts/NetflixSansIcon.woff') format('woff');
 }

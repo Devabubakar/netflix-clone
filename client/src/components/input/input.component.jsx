@@ -22,10 +22,10 @@ function CTAInput({ placeholder }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    auth.setEmail(email);
 
-    navigate('/signup');
     try {
+      await auth.setEmail(email);
+      navigate('/signup');
     } catch (error) {
       console.log(error);
       auth.setEmail('');
@@ -51,4 +51,4 @@ function CTAInput({ placeholder }) {
   );
 }
 
-export default CTAInput;
+export default React.memo(CTAInput);
