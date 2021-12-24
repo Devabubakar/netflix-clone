@@ -14,7 +14,18 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-export const AuthContext = createContext();
+//types
+interface GlobalType {
+  user: object | null | boolean;
+  signIn: Function;
+  signOut: Function;
+  signUp: Function;
+  loading: boolean;
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const AuthContext = createContext<GlobalType | null>(null);
 
 //provide children with access to context
 export const useAuth = () => {
@@ -22,7 +33,7 @@ export const useAuth = () => {
 };
 
 //wrapper provider component
-const AuthProvider = ({ children }) => {
+const AuthProvider: React.FC<{}> = ({ children }) => {
   const auth = useProvideAuth();
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 };
@@ -31,11 +42,11 @@ export default AuthProvider;
 
 //hook to create auth object handle states
 export const useProvideAuth = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<object | null | boolean>(null);
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
 
-  const signIn = (email, password) => {
+  const signIn = (email: string, password: string) => {
     return firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -47,7 +58,7 @@ export const useProvideAuth = () => {
       });
   };
 
-  const signUp = (email, password) => {
+  const signUp = (email: string, password: string) => {
     return firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)

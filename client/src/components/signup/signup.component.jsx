@@ -10,7 +10,7 @@ import {
   ErrorInput,
 } from '../login/login.style';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth.tsx';
 import Loader from '../loader/loader.component';
 
 const SignUp = () => {

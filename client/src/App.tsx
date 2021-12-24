@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { lazy, Suspense } from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import './App.css';
 import ErrorBoundary from './components/error.boundary/error.boundary';
@@ -14,42 +14,42 @@ const Login = lazy(() => import('./components/login/login.component'));
 const NotFound = lazy(() => import('./components/notfound/notfound.component'));
 const Browse = lazy(() => import('./pages/browse/browse.component'));
 const SignUp = lazy(() => import('./components/signup/signup.component'));
-const Navigation = lazy(() =>
-  import('./components/navigation/navigation.component')
+const Navigation = lazy(
+  () => import('./components/navigation/navigation.component')
 );
-function App() {
+const App: React.FC = () => {
   return (
     <div className='App'>
       <Router>
         <ErrorBoundary>
           <Suspense fallback={<Loader />}>
             <AuthProvider>
-            <Navigation />
+              <Navigation />
 
-            <Routes>
-              <Route exact path='/' element={<LandingPage />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/signup' element={<SignUp />} />
-              <Route path='/trailers/:id' element={<Watch />} />
+              <Routes>
+                <Route path='/' element={<LandingPage />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<SignUp />} />
+                <Route path='/trailers/:id' element={<Watch />} />
 
-              <Route
-                path='/browse'
-                element={
-                  <ProtectedRoute>
-                    <Browse />
-                  </ProtectedRoute>
-                }
-              />
+                <Route
+                  path='/browse'
+                  element={
+                    <ProtectedRoute>
+                      <Browse />
+                    </ProtectedRoute>
+                  }
+                />
 
-              {/* Global Error Handler */}
-              <Route path='*' element={<NotFound />} />
-            </Routes>
+                {/* Global Error Handler */}
+                <Route path='*' element={<NotFound />} />
+              </Routes>
             </AuthProvider>
           </Suspense>
         </ErrorBoundary>
       </Router>
     </div>
   );
-}
+};
 
 export default App;

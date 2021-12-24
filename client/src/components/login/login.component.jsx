@@ -9,8 +9,8 @@ import {
   LoginButton,
   ErrorInput,
 } from './login.style';
-import {  useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth.tsx';
 import Loader from '../loader/loader.component';
 
 const Login = () => {

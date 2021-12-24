@@ -7,7 +7,7 @@ import {
   NavItem,
 } from './navigation.style';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth.tsx';
 import { ButtonLink, CustomButton } from '../button/button.style';
 
 import { useLocation } from 'react-router';

@@ -2,7 +2,7 @@ import React from 'react';
 import { HeroInput, InputContainer, CtaContainer } from './input.style';
 import { CustomButton } from '../button/button.style';
 import { useNavigate } from 'react-router';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth.tsx';
 
 const handleClick = (event) => {
   event.preventDefault();

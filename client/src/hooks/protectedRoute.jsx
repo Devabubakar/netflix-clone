@@ -1,4 +1,4 @@
-import { useAuth } from './useAuth';
+import { useAuth } from './useAuth.tsx';
 import { Navigate } from 'react-router-dom';
 import Loader from '../components/loader/loader.component';
 export default function ProtectedRoute({ children }) {
@@ -7,7 +7,3 @@ export default function ProtectedRoute({ children }) {
   if (auth.loading === true) return <Loader />;
   return auth.user ? children : <Navigate to='/login' replace />;
 }
-
-
-
-
