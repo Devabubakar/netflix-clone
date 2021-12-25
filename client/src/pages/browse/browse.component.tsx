@@ -8,7 +8,7 @@ const Row = React.lazy(() => import('../../components/row/row.component'));
 
 function Browse() {
   return (
-    <div>
+    <>
       <Banner />
       <Row
         url={`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=27`}
@@ -49,7 +49,7 @@ function Browse() {
         heading='Sciency Fiction'
       />
       <Footer />
-    </div>
+    </>
   );
 }
 
