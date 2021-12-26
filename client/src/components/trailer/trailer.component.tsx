@@ -10,9 +10,10 @@ import ErrorImage from '../../assets/404.jpg';
 
 import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
+import { CustomType } from '../row/row.component';
 
-const Trailer = ({ id }) => {
-  const { data, isLoading } = useFetch(
+const Trailer = ({ id }: { id: string | undefined }) => {
+  const { data, isLoading } = useFetch<CustomType>(
     `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US?type=Trailer`
   );
   if (isLoading) return <Loader />;
@@ -27,7 +28,6 @@ const Trailer = ({ id }) => {
           src={`https://www.youtube.com/embed/${data.results[0].key}`}
           frameBorder='0'
           allow='autoplay'
-          modestBranding='1'
           allowFullScreen
           loading='lazy'
         />

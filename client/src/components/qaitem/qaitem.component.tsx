@@ -11,7 +11,18 @@ import CTAInput from '../input/input.component';
 import { FaPlus, FaTimes } from 'react-icons/fa';
 import { QA } from '../../data/QA';
 
-function ListItem({ qaitem, clicked, toggleItem, index }) {
+interface Qaitem {
+  question: string;
+  answer: string;
+}
+interface Props {
+  qaitem: Qaitem;
+  clicked: boolean | number | null;
+  toggleItem: Function;
+  index: number;
+}
+
+function ListItem({ qaitem, clicked, toggleItem, index }: Props) {
   return (
     <div>
       <QAItems onClick={() => toggleItem(index)}>
@@ -27,7 +38,7 @@ function ListItem({ qaitem, clicked, toggleItem, index }) {
   );
 }
 function QAItem() {
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState<boolean | null>(false);
   const toggleItem = React.useCallback(
     (index) => {
       if (clicked === index) {

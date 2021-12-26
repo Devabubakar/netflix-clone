@@ -5,7 +5,7 @@ export const QASection = styled.div`
   color: white;
   padding-bottom: 50px;
 `;
-export const QAHeader = styled.h3`
+export const QAHeader = styled.h3<{ small?: boolean }>`
   font-size: 1.3rem;
   padding: ${(props) => (props.small ? '50px 0 0 0' : '20px')};
   text-align: center;

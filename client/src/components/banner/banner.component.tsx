@@ -11,12 +11,13 @@ import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 import useFetch from '../../hooks/useFetch';
 import Loader from '../loader/loader.component';
+
 function Banner() {
-  const { data, isLoading } = useFetch(
+  const { data, isLoading }: { data: any; isLoading: boolean } = useFetch(
     `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&adult=false`
   );
 
-  const truncateString = (string, limit) => {
+  const truncateString = (string: string, limit: number) => {
     if (string.length > limit) {
       return string.substring(0, limit) + '...';
     } else {
@@ -24,7 +25,7 @@ function Banner() {
     }
   };
 
-  const movie = data?.results[Math.floor(Math.random() * data.results.length)];
+  const movie = data?.results[Math.floor(Math.random() * data?.results.length)];
 
   return isLoading ? (
     <Loader />

@@ -11,7 +11,7 @@ const CTAInput = React.lazy(() => import('../input/input.component'));
 
 function HeroSection() {
   return (
-    <div>
+    <>
       <HeroContainer>
         <HeroContent>
           <HeroHeader>Unlimited movies, TV shows and more.</HeroHeader>
@@ -23,7 +23,7 @@ function HeroSection() {
           <CTAInput placeholder='Email Address' />
         </HeroContent>
       </HeroContainer>
-    </div>
+    </>
   );
 }
 

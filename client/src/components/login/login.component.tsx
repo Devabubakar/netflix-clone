@@ -10,7 +10,7 @@ import {
   ErrorInput,
 } from './login.style';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth.tsx';
+import { useAuth } from '../../hooks/useAuth';
 import Loader from '../loader/loader.component';
 
 const Login = () => {
@@ -18,28 +18,30 @@ const Login = () => {
 
   const auth = useAuth();
   const [input, setInput] = useState({ email: '', password: '' });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     try {
       setLoading(true);
-      await auth.signIn(input.email, input.password).then(() => {
+      await auth!.signIn(input.email, input.password).then(() => {
         navigate('/browse');
         setLoading(false);
       });
     } catch (error) {
-      setError(error);
-      setLoading(false);
+      if (error instanceof Error) {
+        setError(error);
+        setLoading(false);
+      }
     }
   };
 
   if (loading) return <Loader />;
 
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+  const handleChange = (event: React.FormEvent<HTMLInputElement>): void => {
+    const name = event.currentTarget.name;
+    const value = event.currentTarget.value;
 
     setInput({ ...input, [name]: value });
   };
@@ -51,7 +53,6 @@ const Login = () => {
         <FormContainer onSubmit={handleSubmit}>
           <LoginInput
             type='email'
-            label='Email Address'
             placeholder='Email Address'
             onChange={handleChange}
             name='email'
@@ -59,7 +60,6 @@ const Login = () => {
           />
           <LoginInput
             type='password'
-            label='Password'
             placeholder='Password'
             onChange={handleChange}
             name='password'

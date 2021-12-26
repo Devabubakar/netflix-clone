@@ -7,7 +7,7 @@ import {
   NavItem,
 } from './navigation.style';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth.tsx';
+import { useAuth } from '../../hooks/useAuth';
 import { ButtonLink, CustomButton } from '../button/button.style';
 
 import { useLocation } from 'react-router';
@@ -28,8 +28,8 @@ function Navigation() {
       {location.pathname === '/login' ||
       location.pathname === '/signup' ? null : (
         <NavIcons>
-          {auth.user ? (
-            <CustomButton signout onClick={() => auth.signOut()}>
+          {auth!.user ? (
+            <CustomButton signout onClick={() => auth!.signOut()}>
               Logout
             </CustomButton>
           ) : (

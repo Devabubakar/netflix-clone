@@ -10,36 +10,38 @@ import {
   ErrorInput,
 } from '../login/login.style';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth.tsx';
+import { useAuth } from '../../hooks/useAuth';
 import Loader from '../loader/loader.component';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const auth = useAuth();
-  const email = auth.email;
+  const email = auth!.email;
 
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     try {
       setLoading(true);
-      await auth.signUp(email, password).then(() => {
+      await auth!.signUp(email, password).then(() => {
         navigate('/browse');
         setLoading(false);
       });
     } catch (error) {
-      setError(error);
-      setLoading(false);
+      if (error instanceof Error) {
+        setError(error);
+        setLoading(false);
+      }
     }
   };
 
   if (loading) return <Loader />;
 
-  const handleChange = (event) => {
-    setPassword(event.target.value);
+  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
+    setPassword(event.currentTarget.value);
   };
 
   return (
@@ -49,7 +51,6 @@ const SignUp = () => {
         <FormContainer onSubmit={handleSubmit}>
           <LoginInput
             type='email'
-            label='Email Address'
             placeholder='Email Address'
             name='email'
             value={email}
@@ -58,7 +59,6 @@ const SignUp = () => {
           />
           <LoginInput
             type='password'
-            label='Password'
             placeholder='Password'
             onChange={handleChange}
             name='password'

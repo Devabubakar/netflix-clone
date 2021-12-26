@@ -73,7 +73,7 @@ export const useProvideAuth = () => {
       .auth()
       .signOut()
       .then(() => {
-        setUser(false);
+        setUser(null);
         setLoading(false);
       });
   };

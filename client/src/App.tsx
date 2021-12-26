@@ -6,7 +6,7 @@ import './App.css';
 import ErrorBoundary from './components/error.boundary/error.boundary';
 import Loader from './components/loader/loader.component';
 import AuthProvider from './hooks/useAuth';
-import ProtectedRoute from './hooks/protectedRoute';
+import ProtectedRoute, { RedirectRoute } from './hooks/protectedRoute';
 
 const Watch = lazy(() => import('./pages/watch/watch.component'));
 const LandingPage = lazy(() => import('./pages/landing/landing.component'));
@@ -17,7 +17,7 @@ const SignUp = lazy(() => import('./components/signup/signup.component'));
 const Navigation = lazy(
   () => import('./components/navigation/navigation.component')
 );
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className='App'>
       <Router>
@@ -27,7 +27,14 @@ const App: React.FC = () => {
               <Navigation />
 
               <Routes>
-                <Route path='/' element={<LandingPage />} />
+                <Route
+                  path='/'
+                  element={
+                    <RedirectRoute>
+                      <LandingPage />
+                    </RedirectRoute>
+                  }
+                />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/trailers/:id' element={<Watch />} />

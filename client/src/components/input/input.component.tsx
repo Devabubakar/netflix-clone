@@ -2,37 +2,43 @@ import React from 'react';
 import { HeroInput, InputContainer, CtaContainer } from './input.style';
 import { CustomButton } from '../button/button.style';
 import { useNavigate } from 'react-router';
-import { useAuth } from '../../hooks/useAuth.tsx';
+import { useAuth } from '../../hooks/useAuth';
 
-const handleClick = (event) => {
+const handleClick = (event: Event) => {
   event.preventDefault();
 };
-export function Input({ placeholder, type, login }) {
+
+interface Props {
+  placeholder: string;
+  type: string;
+  login: string;
+}
+export const Input = ({ placeholder, type, login }: Props) => {
   return (
     <InputContainer>
       <HeroInput type={type} onClick={handleClick} placeholder={placeholder} />
     </InputContainer>
   );
-}
+};
 
-function CTAInput({ placeholder }) {
+const CTAInput = ({ placeholder }: { placeholder: string }) => {
   const auth = useAuth();
   const [email, setEmail] = React.useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     try {
-      await auth.setEmail(email);
+      await auth!.setEmail(email);
       navigate('/signup');
     } catch (error) {
       console.log(error);
-      auth.setEmail('');
+      auth!.setEmail('');
     }
   };
-  const handleChange = (event) => {
-    setEmail(event.target.value);
+  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+    setEmail(e.currentTarget.value);
   };
   return (
     <CtaContainer onSubmit={handleSubmit}>
@@ -49,6 +55,6 @@ function CTAInput({ placeholder }) {
       </CustomButton>
     </CtaContainer>
   );
-}
+};
 
 export default React.memo(CTAInput);

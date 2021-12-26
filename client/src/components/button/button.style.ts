@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-export const buttonStyle = css`
+export const buttonStyle = css<{ large?: boolean; signout?: boolean }>`
   padding: ${(props) => (props.large ? '.6rem 2rem' : '.2rem .4rem')};
   background-color: #e6322f;
   color: white;
@@ -18,9 +18,8 @@ export const buttonStyle = css`
 `;
 export const CustomButton = styled.button`
   ${buttonStyle}
- 
 `;
-export const ButtonLink = styled(Link)`
+export const ButtonLink = styled(Link)<{ large?: boolean }>`
   text-decoration: none;
   ${buttonStyle}
 

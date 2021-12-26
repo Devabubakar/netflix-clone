@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const BannerContainer = styled.div`
+export const BannerContainer = styled.div<{ img: string }>`
   object-fit: contain;
 
   width: 100%;
@@ -46,7 +46,7 @@ export const BannerParagraph = styled.p`
     width: 50%;
   }
 `;
-export const BannerButton = styled(Link)`
+export const BannerButton = styled(Link)<{ info?: string }>`
   width: ${(props) => (props.info ? '120px' : '80px')};
   height: 35px;
   border: none;
