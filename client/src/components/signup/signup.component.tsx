@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HeroContainer } from '../hero/hero.style';
+import { Input } from '../input/input.component';
 
 import {
   LoginContainer,
@@ -19,22 +20,20 @@ const SignUp = () => {
   const email = auth!.email;
 
   const [password, setPassword] = useState('');
-  const [error, setError] = useState<Error | null>(null);
+  const [wasSubmitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     try {
       setLoading(true);
+      setSubmitted(true);
       await auth!.signUp(email, password).then(() => {
         navigate('/browse');
         setLoading(false);
       });
     } catch (error) {
-      if (error instanceof Error) {
-        setError(error);
-        setLoading(false);
-      }
+      console.log(error);
     }
   };
 
@@ -57,15 +56,12 @@ const SignUp = () => {
             required={true}
             readOnly={true}
           />
-          <LoginInput
-            type='password'
-            placeholder='Password'
-            onChange={handleChange}
+          <Input
             name='password'
-            required={true}
+            type='password'
+            placeholder='Your Password'
+            wasSubmitted={wasSubmitted}
           />
-
-          {error && <ErrorInput>{error.message}</ErrorInput>}
 
           <LoginButton type='submit'>Sign Up</LoginButton>
         </FormContainer>

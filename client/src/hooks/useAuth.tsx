@@ -22,7 +22,7 @@ interface GlobalType {
   signUp: Function;
   loading: boolean;
   email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  setEmail: (email: string) => void;
 }
 
 export const AuthContext = createContext<GlobalType | null>(null);
