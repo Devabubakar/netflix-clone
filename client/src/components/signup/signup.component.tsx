@@ -19,12 +19,15 @@ const SignUp = () => {
   const auth = useAuth();
   const email = auth!.email;
 
-  const [password, setPassword] = useState('');
   const [wasSubmitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
 
-  const handleSubmit = async (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const formValues = Object.fromEntries(formData.entries());
+    const password = formValues.password;
     try {
       setLoading(true);
       setSubmitted(true);
@@ -33,15 +36,15 @@ const SignUp = () => {
         setLoading(false);
       });
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        setLoading(false);
+        setError(error);
+        
+      }
     }
   };
 
   if (loading) return <Loader />;
-
-  const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-    setPassword(event.currentTarget.value);
-  };
 
   return (
     <HeroContainer>
@@ -65,6 +68,7 @@ const SignUp = () => {
 
           <LoginButton type='submit'>Sign Up</LoginButton>
         </FormContainer>
+        {error && <ErrorInput>{error.message}</ErrorInput>}
       </LoginContainer>
     </HeroContainer>
   );

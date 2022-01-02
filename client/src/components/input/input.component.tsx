@@ -15,38 +15,39 @@ interface Props {
   wasSubmitted: boolean;
 }
 
-const getErrorMessage = (value: string | undefined) => {
+const getErrorMessage = (value: string | undefined, type: string) => {
   if (!value) return 'field is required';
-  const valueIsLowerCase = value === value.toLowerCase();
-  const valueIsLongEnough = value.length >= 3;
-  const valueIsShortEnough = value.length <= 10;
 
-  if (!valueIsLowerCase) {
-    console.log('value should be in lowercase');
-    return 'value should be in lowercase';
-  } else if (!valueIsLongEnough) {
-    console.log('value should be at least 3 characters');
-    return 'value should be at least 3 characters';
-  } else if (!valueIsShortEnough) {
-    console.log(' value should be less than 10 characters ');
-    return ' value should be less than 10 characters ';
+  //email validation
+  if (type === 'email') {
+    //check if valid email
+    if (!/(.+)@(.+){2,}\.(.+){2,}/.test(value)) {
+      // invalid email
+      return 'please enter a valid email address';
+    }
+  }
+
+  //password validation
+  if (type === 'password') {
+    const valueIsLongEnough = value.length >= 3;
+    const valueIsShortEnough = value.length <= 10;
+
+    if (!valueIsLongEnough) {
+      console.log('value should be at least 3 characters');
+      return 'value should be at least 3 characters';
+    } else if (!valueIsShortEnough) {
+      console.log(' value should be less than 10 characters ');
+      return ' value should be less than 10 characters ';
+    }
   }
 
   return null;
 };
 
-interface FormElements extends HTMLFormControlsCollection {
-  emailInput: HTMLInputElement;
-  passwordInput: HTMLInputElement;
-}
-
-interface CustomFormElements extends HTMLFormElement {
-  readonly elements: FormElements;
-}
 export const Input = ({ placeholder, type, name, wasSubmitted }: Props) => {
   const [value, setValue] = React.useState('');
   const [touched, setTouched] = React.useState(false);
-  const errorMessage = getErrorMessage(value);
+  const errorMessage = getErrorMessage(value, type);
   const displayErrorMessage = (wasSubmitted || touched) && errorMessage;
   console.log(touched);
 
@@ -62,13 +63,15 @@ export const Input = ({ placeholder, type, name, wasSubmitted }: Props) => {
         }
         onBlur={() => setTouched(true)}
         id={`${name}-input`}
-        pattern='[a-z]{3-10}'
         required
       />
       {errorMessage ? <span>{displayErrorMessage}</span> : null}
     </InputContainer>
   );
 };
+
+
+//custom input for call to action inputs 
 
 const CTAInput = ({ placeholder }: { placeholder: string }) => {
   const auth = useAuth();
@@ -81,9 +84,11 @@ const CTAInput = ({ placeholder }: { placeholder: string }) => {
     const formData = new FormData(event.currentTarget);
     const formValues: any = Object.fromEntries(formData.entries());
 
+    
+
     //check if form is valid
     const isFormValid = Object.values(formValues).every(
-      (value: any) => !getErrorMessage(value)
+      (value: any) => !getErrorMessage(value, 'email')
     );
 
     setWasSubmitted(true);
@@ -96,7 +101,7 @@ const CTAInput = ({ placeholder }: { placeholder: string }) => {
 
         navigate('/signup');
       } catch (error) {
-        console.log(error);
+        
         auth!.setEmail('');
       }
     } else {
