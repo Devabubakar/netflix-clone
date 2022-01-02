@@ -27,7 +27,7 @@ Mobile responsive Netflix clone built with ReactJS, styled - component,react rou
 
 ### Links
 
-- Live Site: [Heroku](https://netflix-live-clone.herokuapp.com/)
+- Live Site: [Heroku](https://flixnet-live.herokuapp.com/)
 
 ### Built with
 
