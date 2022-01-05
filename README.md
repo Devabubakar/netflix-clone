@@ -19,11 +19,11 @@ Mobile responsive Netflix clone built with ReactJS, styled - component,react rou
 
 ## Desktop
 
-![](./src/assets/desktop.png)
+![](./client/src/assets/desktop.png)
 
 ## Mobile
 
-![](./src/assets/mobile.png)
+![](./client/src/assets/mobile.png)
 
 ### Links
 
